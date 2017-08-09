@@ -1,0 +1,54 @@
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/fetcher', {
+  useMongoClient: true
+});
+
+var db = mongoose.connection;
+
+db.on('error', () => {
+  console.log('mongoose connection error');
+});
+
+db.once('open', () => {
+  console.log('mongoose connected successfully');
+});
+
+var userSchema = mongoose.Schema({
+  userName: String,
+  id: Number
+  voteCount: Number
+});
+
+var imageSchema = mongoose.Schema({
+  id: Number,
+  imageUrl: String,
+  voteCount: Number,
+  tags: Array
+});
+
+var commentSchema = mongoose.Schema({
+  id: Number,
+  comment: String,
+  timeStamp: String,
+  voteCount: Number
+});
+
+var User = mongoose.model('User', userSchema, 'users');
+var Image = mongoose.model('Image', imageSchema, 'users');
+var Comment = mongoose.model('Comment', commentSchema, 'users');
+
+var selectAll = (callback, model) => {
+  model.find({}, (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+// var save = () => {
+//
+// }
+
+module.exports.selectAll = selectAll;
