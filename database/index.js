@@ -15,23 +15,29 @@ db.once('open', () => {
 
 var userSchema = mongoose.Schema({
   userName: String,
-  id: Number
+  id: Number,
+  hashPass: String,
+  salt: String,
   voteCount: Number
 });
 
 var imageSchema = mongoose.Schema({
   id: Number,
+  userId: Number,
   imageUrl: String,
+  timeStamp: String,
+  geoLocation: String,
+  commentId: Number,
   voteCount: Number,
-  tags: Array
+  tags: Array,
+  comments: Array
 });
 
-var commentSchema = mongoose.Schema({
-  id: Number,
-  comment: String,
-  timeStamp: String,
-  voteCount: Number
-});
+// var commentSchema = mongoose.Schema({
+//   userId: Number,
+//   componentId: Number,
+//   imageId: Number
+// });
 
 var User = mongoose.model('User', userSchema, 'users');
 var Image = mongoose.model('Image', imageSchema, 'users');
