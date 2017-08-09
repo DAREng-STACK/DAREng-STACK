@@ -6,17 +6,18 @@ var path = require('path');
 
 var app = express();
 app.use(bodyParser.json());
-app.use('/', express.static(path.join(__dirname, '/client/index.html')));
+app.use('/', express.static(path.join(__dirname, '../')));
+app.use('/', express.static(path.join(__dirname, '../client')));
 
 //routes
 app.get('/images', function(req, res, next) {
-  res.redirect('/')
-})
+  res.redirect('/');
+});
 // db.connect();
 
 var port = 4500;
 var server = app.listen(port, () => {
   console.log('App is now running on port ', port);
-})
+});
 
 module.exports = app;

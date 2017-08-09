@@ -4,10 +4,10 @@
 
 ## Team
 
-  - teamMember
-  - teamMember
-  - teamMember
-  - teamMember
+  - Daniel
+  - Andrew
+  - Easak
+  - Ryan
 
 ## Table of Contents
 
@@ -46,6 +46,8 @@ bower install
 ### Roadmap
 
 View the project roadmap [here](LINK_TO_DOC)
+
+DB Schema https://www.lucidchart.com/documents/edit/4588f252-510d-467f-a9e7-d96eeca7bac8?shared=true&
 
 
 ## Contributing

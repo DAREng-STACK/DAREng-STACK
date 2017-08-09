@@ -4,9 +4,5 @@ angular.module('main')
     controller: () => {
       
     },
-    template: `
-        <div id="app container">
-          <h1>WORKKKK</h1>
-        </div>
-    `
+    templateUrl: '../templates/app.html',
   });
