@@ -1,9 +1,9 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "picognito",
+  "version": "0.0.1",
+  "description": "location based image sharing community",
+  "author": "DAREng-STACK",
+  "license": "UNLICENCED",
   "engines": {
     "node": ">=6.4.0"
   },
@@ -12,6 +12,7 @@
     "angular": "^1.6.5",
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
     "chai": "^4.1.1",
     "express": "^4.15.4",
     "mocha": "^3.5.0",
