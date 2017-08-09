@@ -53,15 +53,15 @@ var selectAll = (callback, model) => {
   });
 }
 
-var selectImages = (callback, query) => {
-  Image.find({query}, (err, results) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, results);
-    }
-  });
-}
+// var selectImages = (callback, query) => {
+//   Image.find({query}, (err, results) => {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, results);
+//     }
+//   });
+// }
 
 // var save = () => {
 //
