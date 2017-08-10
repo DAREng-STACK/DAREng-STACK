@@ -1,6 +1,6 @@
 # Project Name
 
-> Ever wanted to see what others in your area find a delight for the eyes?  Buildings, trees, birds,  and of course FOOD!  Picognito shows you the most recent images posted in your area, so you can see if anything interesting is happening now, or peruse what others in your area find interesting! Picognito will also show you the most popular images in your area, and once you sign up, you can join in the discussion and contribute your voice! 
+> Ever wanted to see what others in your area find a delight for the eyes? Buildings, trees, birds, and of course FOOD!  Picognito shows you the most recent images posted in your area, so you can see if anything interesting is happening now, or peruse what others in your area find interesting! Picognito will also show you the most popular images in your area, and once you sign up, you can join in the discussion and contribute your voice!
 
 ## Team
 

@@ -1,3 +1,22 @@
 div {
-  border: 2px solid orange;
+  border: 1px solid #ACF7FF;
+}
+.navbar {
+  background-color: #a991E8;
+}
+.navbar-right {
+  background-color: #A2E981;
+}
+body {
+  background-color: grey;
+  padding-top: 70px;
+  padding-bottom: 30px;
+
+}
+.navbar .container {
+  width: auto;
+}
+picsquare {
+  width: 200px;
+  height: 200px;
 }

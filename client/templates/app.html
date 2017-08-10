@@ -1,46 +1,40 @@
-<div class="picgrid">
-  <h1>Header <search> </search>
-</h1>
-  
-<!--   <picsquare> 
-  </picsquare> -->
- 
-  
-</div>
-<heatmap></heatmap>
-<table>
-<tbody>
-<tr>
-<td> <picsquare> 
-  </picsquare></td>
-<td> <picsquare> 
-  </picsquare></td>
-<td> <picsquare> 
-  </picsquare></td>
-</tr>
-<tr>
-<td> <picsquare> 
-  </picsquare></td>
-<td> <picsquare> 
-  </picsquare></td>
-<td> <picsquare> 
-  </picsquare></td>
-</tr>
-<tr>
-<td> <picsquare> 
-  </picsquare></td>
-<td> <picsquare> 
-  </picsquare></td>
-<td> <picsquare> 
-  </picsquare></td>
-</tr>
-<topfive></topfive>
-</tbody>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header"> <!--header icon Place -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Picognito</a>
+    </div> <!--/end header -->
+    <div id="navbar" class="navbar-collapse collapse"> <!--main nav bar -->
+      <div class="nav navbar-nav">
+        <search />
+      </div>
+      <div class="nav navbar-nav navbar-right">
+        User block \n
+        Placeholder
+      </div>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav> <!--/end of Navbar contains search and userinfo modules -->
 
-</table>
+<div class="container-fluid theme-showcase" role="main"> <!--main body grid start -->
+  <div class="col-xs-8">
+    <heatmap />
 
-<yourmostliked></yourmostliked>
-</div>
-
-
-
+    <picsquare />
+    <picsquare /> 
+    <picsquare />
+    <picsquare /> 
+    <picsquare />
+    <picsquare /> 
+  </div>
+  <div class="col-xs-1" />
+  <div class="col-xs-3">
+    <topfive />
+  </div>
+</div> <!--/ Main container ends-->
+<yourmostliked />
