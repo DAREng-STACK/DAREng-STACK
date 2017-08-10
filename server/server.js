@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path');
-// var db = require('/db/database');
+var db = require('../database/index.js');
 
 var app = express();
 app.use(bodyParser.json());
@@ -10,15 +10,25 @@ app.use('/', express.static(path.join(__dirname, '../')));
 app.use('/', express.static(path.join(__dirname, '../client')));
 
 //routes
-app.get('/images', function(req, res, next) {
-  console.log('GET REQUEST IN SERVER')
-  res.redirect('/');
+app.get('/images', (req, res, next) => {
+  console.log('GET REQUEST IN SERVER', req.body)
 
+  db.selectAllImages((err, selected) => {
+    if(err){
+      console.log('err');
+    }
+    console.log(selected)
+    res.send(selected);
+  });
 });
 
-app.post('/images', function(req, res) {
-  console.log('POST REUEST IN SERVER');
-  res.send();
+app.post('/images', (req, res) => {
+  console.log(req)
+  db.save(req.body)
+})
+
+app.post('/users', (req, res) => {
+
 })
 // db.connect();
 

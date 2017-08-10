@@ -22,15 +22,15 @@ var userSchema = mongoose.Schema({
 });
 
 var imageSchema = mongoose.Schema({
-  id: Number,
+  id: String,
   userId: Number,
   imageUrl: String,
-  timeStamp: String,
+  caption: String,
   geoLocation: String,
-  commentId: Number,
-  voteCount: Number,
   tags: Array,
-  comments: Array
+  timeStamp: String,
+  comments: Array,
+  voteCount: Number,
 });
 
 // var commentSchema = mongoose.Schema({
@@ -40,17 +40,50 @@ var imageSchema = mongoose.Schema({
 // });
 
 var User = mongoose.model('User', userSchema, 'users');
-var Image = mongoose.model('Image', imageSchema, 'users');
-var Comment = mongoose.model('Comment', commentSchema, 'users');
+var Image = mongoose.model('Image', imageSchema, 'images');
+// var Comment = mongoose.model('Comment', commentSchema, 'users');
 
-var selectAll = (callback, model) => {
-  model.find({}, (err, data) => {
+var selectAllImages = (callback) => {
+  Image.find({}, (err, data) => {
     if (err) {
       callback(err, null);
     } else {
       callback(null, data);
     }
   });
+}
+
+ var selectImages = (callback, query) => {
+  Image.find({query}, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
+var save = (image) => {
+  var newImage = new Image({
+    id: image.id,
+    userId: image.userId,
+    imageUrl: image.link,
+    // timeStamp: image.timeStamp,
+    geoLocation: null,
+    caption: image.description,
+    voteCount: 0,
+    tags: image.tags,
+    // comments: image.comments
+  });
+
+ newImage.save(function(err, res) {
+    if (err) {
+      return err;
+    }else{
+      return res;
+    }
+  });
+
 }
 
 // var selectImages = (callback, query) => {
@@ -67,4 +100,5 @@ var selectAll = (callback, model) => {
 //
 // }
 
-module.exports.selectAll = selectAll;
+module.exports.selectAllImages = selectAllImages;
+module.exports.save = save;
