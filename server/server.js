@@ -11,8 +11,15 @@ app.use('/', express.static(path.join(__dirname, '../client')));
 
 //routes
 app.get('/images', function(req, res, next) {
+  console.log('GET REQUEST IN SERVER')
   res.redirect('/');
+
 });
+
+app.post('/images', function(req, res) {
+  console.log('POST REUEST IN SERVER');
+  res.send();
+})
 // db.connect();
 
 var port = 4500;
