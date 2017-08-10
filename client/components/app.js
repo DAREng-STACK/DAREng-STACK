@@ -31,6 +31,7 @@ angular.module('main')
       console.log('POST REQUEST ERROR')
     });
   }
+  
 })
 
 
@@ -38,11 +39,34 @@ angular.module('main')
 
 
   .component('app', {
-    controller: (serverComm) => {
-    	this.images = [];
-      this.renderImages = (newImages) => {
-      	this.images = newImages;
+    controller: (serverComm) => { 
+
+      this.topfiveimages = [];
+      this.yourmostlikedimages = [];
+      this.sortedbytimestampimages = [];
+      
+      this.sortByTimeStamp = (dataFromGetRequest) => {
+        //iterate through all dataFromGetRequest
+        //sort the data by time (from oldes to newest)
+        //push results to topfiveimages array
       }
+
+      //function to get the top 5 images overall
+      this.getTopFiveImages = (dataFromGetRequest) => {
+        //iterate through all dataFromGetRequest
+        //sort the data by likes (from fewest to most)
+        //cut off the top 5
+        //push results to topfiveimages array
+      }
+      //function to get the top 5 images based on the currently logged in user
+      this.getYourMostLiked = (dataFromGetRequest) => {
+        //iterate through all dataFromGetRequest and pull out only images posted by the user who is logged in
+        //sort the data by likes (from fewest to most)
+        //cut off the top 5
+        //push images to yourmostlikeimages array
+      }
+
+
 
       serverComm.getImages(this.renderimages);
       serverComm.postContent({
@@ -72,6 +96,8 @@ angular.module('main')
           in_gallery: true,
           link: 'http://i.imgur.com/FKE7Brb.png'
       });
+ 
+
     },
     templateUrl: '../templates/app.html',
   });
