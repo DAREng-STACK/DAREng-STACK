@@ -15,6 +15,11 @@ app.get('/images', function(req, res, next) {
   res.redirect('/');
 
 });
+
+app.post('/images', function(req, res) {
+  console.log('POST REUEST IN SERVER');
+  res.send();
+})
 // db.connect();
 
 var port = 4500;

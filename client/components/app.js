@@ -1,8 +1,8 @@
 angular.module('main')
 
 
-.service('serverGet', function($http) {
-  this.getimages = function(params, callback) {
+.service('serverComm', function($http) {
+  this.getImages = function(params, callback) {
     $http({
       method: 'GET',
       url: '/images',
@@ -14,18 +14,33 @@ angular.module('main')
           console.log('GET REQUEST ERROR')
     });
   };
+
+  this.postContent = function (data) {
+    $http({
+      method: 'POST',
+      url: '/images',
+      data: data
+    }).then(() => {
+      console.log('POST REQUEST SUCCESS');
+    }, () => {
+      console.log('POST REQUEST ERROR')
+    });
+  }
 })
 
 
 
+
+
   .component('app', {
-    controller: (serverGet) => { 
+    controller: (serverComm) => { 
     	this.images = [];
-      this.renderimages = (newImages) => {
+      this.renderImages = (newImages) => {
       	this.images = newImages;
       }
 
-      serverGet.getimages(this.renderimages);
+      // serverComm.getImages(this.renderimages); 
+      serverComm.postContent({username: 'Ryan'});
     },
     templateUrl: '../templates/app.html',
   });
