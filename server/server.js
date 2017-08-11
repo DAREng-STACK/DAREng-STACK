@@ -32,7 +32,7 @@ app.post('/users', (req, res) => {
 })
 // db.connect();
 
-var port = 4500;
+var port = process.env.PORT || 4500;
 var server = app.listen(port, () => {
   console.log('App is now running on port ', port);
 });
