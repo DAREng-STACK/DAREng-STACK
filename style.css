@@ -1,10 +1,24 @@
 div {
-  border: 1px solid #ACF7FF;
+  border: 1px solid rgba(172, 247, 255, 0.00);
 }
 .navbar {
-  background-color: #a991E8;
+  margin-bottom: 0;
+  font-weight: bold;
+  color: #a991E8;
+  text-align: center;
+  background-color: #a991E8; /* Old browsers */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#a991E8), to(#8976BB));
+  background-image: -webkit-linear-gradient(top, #a991E8 0%, #8976BB 100%);
+  background-image:      -o-linear-gradient(top, #a991E8 0%, #8976BB 100%);
+  background-image:         linear-gradient(to bottom, #a991E8 0%,#8976BB 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a991E8', endColorstr='#8976BB',GradientType=0 ); /* IE6-9 */
+  background-repeat: repeat-x; /* Repeat the gradient */
+  border-bottom: 1px rgba(213, 213, 213, 0.00);
 }
-.navbar-right {
+.navbar-collapse {
+  border: 1px rgba(172, 247, 255, 0.00);
+}
+username {
   background-color: #A2E981;
 }
 body {
@@ -19,4 +33,12 @@ body {
 picsquare {
   width: 200px;
   height: 200px;
+}
+.thumbnail {
+  background-color: rgba(172, 247, 255, 0.75)
+
+}
+.img-circle {
+  width: 50px;
+  height: 50px;
 }
