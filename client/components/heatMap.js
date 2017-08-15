@@ -7,5 +7,5 @@ angular.module('main')
     //will need a map image that registers location
     //something with google maps might make this doable?
   },
-  templateUrl: '../templates/heatmap.html'
+  templateUrl: '../templates/heat-map.html'
 });

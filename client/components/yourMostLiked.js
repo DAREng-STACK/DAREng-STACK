@@ -17,7 +17,7 @@ angular.module('main')
       //  <p>{{image.location}}</p>
 //    </div>
     },
-    templateUrl: '../templates/yourmostliked.html',
+    templateUrl: '../templates/your-most-liked.html',
     bindings: {
       yourmostlikedimages: '<'
     }

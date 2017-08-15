@@ -18,7 +18,7 @@ angular.module('main')
 //    </div>
   
   },
-    templateUrl: '../templates/topfive.html',
+    templateUrl: '../templates/top-five.html',
     bindings: {
       topfiveimages: '<'
     }
