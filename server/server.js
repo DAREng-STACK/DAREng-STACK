@@ -10,14 +10,9 @@ app.use('/', express.static(path.join(__dirname, '../')));
 app.use('/', express.static(path.join(__dirname, '../client')));
 
 //routes
-<<<<<<< HEAD
-app.get('/images', (req, res, next) => {
-  console.log('GET REQUEST IN SERVER', req.body)
-=======
 app.get('/images', function(req, res, next) {
   console.log('GET REQUEST IN SERVER')
   res.redirect('/index.js');
->>>>>>> updated server spec
 
   db.selectAllImages((err, selected) => {
     if(err){
