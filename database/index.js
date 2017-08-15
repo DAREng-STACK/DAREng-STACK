@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher', {
+var uri = process.env.MONGODB_URI || 'mongodb://localhost/fetcher';
+mongoose.connect(uri, {
   useMongoClient: true
 });
 
