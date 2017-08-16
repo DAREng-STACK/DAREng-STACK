@@ -13,6 +13,7 @@ angular.module('main')
           console.log("Success", res)
         }
       })
+      this.user = null;
     }
   
 
