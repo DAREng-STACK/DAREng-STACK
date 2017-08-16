@@ -2,10 +2,32 @@ angular.module('main')
 
 .component('postimage', {
   controller: () => {
-    //needs information about app usage from everywhere it's being used
-    //somehow renders hot spots onto a map based on that data
-    //will need a map image that registers location
-    //something with google maps might make this doable?
+
   },
   templateUrl: '../templates/postImage.html'
 });
+
+
+//inject angular file upload directives and services.
+// var app = angular.module('fileUpload', ['ngFileUpload']);
+
+// app.controller('MyCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+//     $scope.uploadPic = function(file) {
+//     file.upload = Upload.upload({
+//       url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+//       data: {username: $scope.username, file: file},
+//     });
+
+//     file.upload.then(function (response) {
+//       $timeout(function () {
+//         file.result = response.data;
+//       });
+//     }, function (response) {
+//       if (response.status > 0)
+//         $scope.errorMsg = response.status + ': ' + response.data;
+//     }, function (evt) {
+//       // Math.min is to fix IE which reports 200% sometimes
+//       file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+//     });
+//     }
+// }]);
