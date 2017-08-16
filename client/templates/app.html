@@ -21,16 +21,8 @@
 
 <div class="container-fluid theme-showcase" role="main"> <!--main body grid start -->
   <div class="col-xs-8">
-    <!-- <heatmap> </heatmap> -->
-      <postimage />
-
-
-    <picsquare class="col-xs-6 col-md-3"/>
-    <picsquare class="col-xs-6 col-md-3"/> 
-    <picsquare class="col-xs-6 col-md-3"/>
-    <picsquare class="col-xs-6 col-md-3"/> 
-    <picsquare class="col-xs-6 col-md-3"/>
-    <picsquare class="col-xs-6 col-md-3"/> 
+    <heatmap />
+    <picsquare ng-repeat="image in $ctrl.images" image="image"/>
   </div>
   <div class="col-xs-1" />
   <div class="col-xs-3">
@@ -38,4 +30,3 @@
   </div>
 </div> <!--/ Main container ends-->
 <yourmostliked />
-

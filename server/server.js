@@ -6,7 +6,7 @@ var db = require('../database/index.js');
 var path = require('path');
 var os = require('os');
 var fs = require('fs');
- 
+
 var Busboy = require('busboy');
 
 
@@ -23,13 +23,13 @@ app.get('/images', function(req, res, next) {
     if(err){
       console.log('err');
     }
-    console.log(selected)
+    // console.log(selected)
     res.send(selected);
   });
 });
 
 app.post('/images', (req, res) => {
-  var busboy = new Busboy({ 
+  var busboy = new Busboy({
     headers: req.headers,
     defCharset: 'base64'
    });

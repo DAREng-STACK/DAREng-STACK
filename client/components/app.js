@@ -31,7 +31,7 @@ angular.module('main')
       console.log('POST REQUEST ERROR')
     });
   }
-  
+
 })
 
 
@@ -39,12 +39,12 @@ angular.module('main')
 
 
   .component('app', {
-    controller: (serverComm) => { 
-
+    controller: (serverComm) => {
+      this.images = window.exampleImageData;
       this.topfiveimages = [];
       this.yourmostlikedimages = [];
       this.sortedbytimestampimages = [];
-      
+
       this.sortByTimeStamp = (dataFromGetRequest) => {
         //iterate through all dataFromGetRequest
         //sort the data by time (from oldes to newest)
@@ -96,7 +96,7 @@ angular.module('main')
           in_gallery: true,
           link: 'http://i.imgur.com/FKE7Brb.png'
       });
- 
+
 
     },
     templateUrl: '../templates/app.html',
