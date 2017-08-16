@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "test": "mocha test"
+    "test": "mocha spec"
   },
   "dependencies": {
     "angular": "^1.6.5",

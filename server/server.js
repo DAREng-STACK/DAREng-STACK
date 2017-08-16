@@ -27,6 +27,11 @@ app.post('/images', (req, res) => {
   db.save(req.body)
 })
 
+app.post('/signup', (req, res) => {
+  console.log(req.body);
+  res.sendStatus(200);
+})
+
 app.post('/users', (req, res) => {
 
 })

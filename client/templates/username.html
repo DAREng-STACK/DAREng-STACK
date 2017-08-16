@@ -3,3 +3,35 @@
   class="img-circle"
   >
 </div>
+
+<div>
+  <form name="signup" ng-show="true">
+    <label>
+    Username: 
+    <input 
+    type="text" 
+    name="username" 
+    ng-model="$ctrl.user.username" 
+    required 
+    ng-minlength="5" 
+    ng-maxlength="10"
+    /></label> 
+    <span ng-show="signup.username.$error.minlength || signup.username.$error.maxlength">
+    Your username must be at least 5 characters, but not more than 10.
+    </span> <br/>
+    <label>
+    Password: 
+    <input 
+    type="password" 
+    name="password" 
+    ng-model="$ctrl.user.password" 
+    required 
+    ng-minlength="5" 
+    ng-maxlength="10"
+    /></label> 
+    <span ng-show="signup.password.$error.minlength || signup.password.$error.maxlength">
+    Your password must be at least 5 characters, but not more than 10.
+    </span><br/>
+    <button ng-click="$ctrl.sendSignUpDataToDatabase($ctrl.user)">Submit</button>
+  </form>
+</div>
