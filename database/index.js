@@ -64,6 +64,16 @@ var selectAllImages = (callback) => {
   });
 }
 
+var selectUsers = (callback, query) => {
+  User.find({query}, (err, data) => {
+    if (err) {
+      callback(err, null);
+    }else{
+      callback(null, data);
+    }
+  })
+}
+
 var save = (image) => {
   var newImage = new Image({
     id: image.id,

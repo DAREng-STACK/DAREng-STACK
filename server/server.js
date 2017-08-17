@@ -46,15 +46,19 @@ app.post('/images', (req, res) => {
   return req.pipe(busboy);
 });
 
+app.get('/signup', (req, res) => {
+  
+})
 app.post('/signup', (req, res) => {
   console.log(req.body);
+  db.
   res.sendStatus(200);
 })
 
 app.post('/users', (req, res) => {
 
 })
-// db.connect();
+
 
 var port = process.env.PORT || 4500;
 var server = app.listen(port, () => {
