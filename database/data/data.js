@@ -1,3 +1,5 @@
+window.actualImageData = [];
+
 window.exampleImageData = [
   {
     "data": {
