@@ -1,5 +1,23 @@
 angular.module('main')
 
+  .service('serverComm', function($http) {
+    this.getImages = function(/*params, callback*/) {
+      $http({
+        method: 'GET',
+        url: '/images',
+        // params: {
+        //     id: 'FKE7Brb'
+        // }
+      }).then((response) => {
+        console.log(response.data, 'GET REQUEST SUCCESS');
+        for (var i = 0; i < response.data.length; i++) {
+          window.actualImageData.push(response.data[i]);
+        }
+        // callback(response.data);
+      }, (response) => {
+        console.log('GET REQUEST ERROR')
+      });
+    };
 
 .service('serverComm', function($http) {
   this.getImages = function(/*params, callback*/) {
@@ -45,7 +63,13 @@ angular.module('main')
     controller: function(serverComm) {
       serverComm.getImages(/*this.renderimages*/);
       this.images = window.actualImageData;
+<<<<<<< HEAD
       this.topfiveimages = [];
+=======
+      this.topfiveimages = this.images.sort(function(a, b) {
+        return b.voteCount - a.voteCount;
+      });
+>>>>>>> Refactor rendering of top five images to use sort function
       this.yourmostlikedimages = [];
       this.sortedbytimestampimages = [];
 
