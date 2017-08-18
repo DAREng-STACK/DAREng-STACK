@@ -4,12 +4,12 @@ angular.module('main')
   controller: function (Upload, $timeout) {
     this.uploadPic = function(file) {
       console.log('YAY CLICK!! ', file);
-      file.upload = Upload.http({
+      file.upload = Upload.upload({
         url: '/images',
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        data: file,
+        data: { 
+          'file': file,
+          'name': file.name
+       }
       });
   
       file.upload.then(function (response) {

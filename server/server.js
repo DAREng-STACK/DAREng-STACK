@@ -29,9 +29,13 @@ app.get('/images', function(req, res, next) {
 });
 
 app.post('/images', (req, res) => {
-  var busboy = new Busboy({ headers: req.headers });
+  var busboy = new Busboy({ 
+    headers: req.headers,
+    defCharset: 'base64'
+   });
   busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-    var saveTo = path.join(os.tmpDir(), path.basename(fieldname));
+    var saveTo = path.join(os.tmpDir(), path.basename(filename));
+    console.log('saveTo ', saveTo);
     file.pipe(fs.createWriteStream(saveTo));
   });
   busboy.on('finish', function() {
