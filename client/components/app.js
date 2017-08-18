@@ -15,7 +15,7 @@ angular.module('main')
         }
         // callback(response.data);
       }, (response) => {
-        console.log('GET REQUEST ERROR')
+        console.log('GET REQUEST ERROR');
       });
     };
 
