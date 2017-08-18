@@ -9,8 +9,9 @@
   <link href="node_modules/bootstrap/dist/js/bootstrap.min.js" />
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="node_modules/angular/angular.js"></script>
-  <script src="ng-file-upload-shim.min.js"></script>
-  <script src="ng-file-upload.min.js"></script>
+  <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+  <script src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+
   <title>Picognito</title>
 </head>
 <body>
@@ -28,5 +29,6 @@
   <script src="client/components/heatMap.js"></script>
   <script src="client/components/username.js"></script>
   <script src="client/components/postImage.js"></script>
+  <script src="client/directives/captureInputFileValue.js"></script>
   </body>
 </html>

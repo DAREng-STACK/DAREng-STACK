@@ -9,18 +9,20 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "test": "mocha spec"
+    "test": "./node_modules/.bin/karma start --single-run"
   },
   "dependencies": {
     "angular": "^1.6.5",
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
+    "busboy": "^0.2.14",
     "express": "^4.15.4",
     "jquery": "^3.2.1",
     "mocha": "^3.5.0",
     "mongoose": "^4.11.6",
     "ng-file-upload": "^12.2.13",
+    "ng-upload": "^0.1.0",
     "nodemon": "^1.11.0"
   },
   "devDependencies": {
@@ -29,7 +31,11 @@
     "babel-register": "^6.7.2",
     "chai": "^4.1.1",
     "chai-http": "^1.0.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jasmine-core": "^2.7.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0"
   },
   "babel": {
     "presets": [
