@@ -47,12 +47,27 @@ app.post('/images', (req, res) => {
 });
 
 app.get('/signup', (req, res) => {
-  
+  console.log(req.body, "@@@@@@@@@@@@@@@")
+
+    db.selectUser((err, data) => {
+      if(err){
+        console.log('ERRROR', err, "ERROR");
+      }
+      console.log(data);
+      res.send(data);
+    },
+    req.body);
 })
 app.post('/signup', (req, res) => {
-  console.log(req.body);
-  db.
-  res.sendStatus(200);
+  console.log(req.body, '@#$%@#@$#@%')
+  db.selectUser((err, data) => {
+    if(err){
+      console.log('ERRROR', err, "ERROR");
+    }
+    console.log(data, "@DFSEWAF");
+    res.send(data);
+  },
+  req.body);
 })
 
 app.post('/users', (req, res) => {

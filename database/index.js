@@ -64,7 +64,7 @@ var selectAllImages = (callback) => {
   });
 }
 
-var selectUsers = (callback, query) => {
+var selectUser = (callback, query) => {
   User.find({query}, (err, data) => {
     if (err) {
       callback(err, null);
@@ -113,3 +113,4 @@ var save = (image) => {
 
 module.exports.selectAllImages = selectAllImages;
 module.exports.save = save;
+module.exports.selectUser = selectUser;
