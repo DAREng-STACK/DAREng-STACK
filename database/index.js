@@ -86,8 +86,8 @@ var save = (image) => {
     tags: image.tags,
     // comments: image.comments
   });
-
- newImage.save(function(err, res) {
+  newImage.addGeoLocation();
+  newImage.save(function(err, res) {
     if (err) {
       return err;
     }else{

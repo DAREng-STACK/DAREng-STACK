@@ -1,5 +1,12 @@
 var checkUsername = (data) => {
+  db.query({data}, (err, res) => {
+    if(err){
+      res.redirect('/login');
+    }else{
+      res.send(data);
+    }
 
+  })
 }
 
 //addGeoLocation is a promise
@@ -25,4 +32,5 @@ var addGeoLocation = () => {
   }
 }
 
+module.exports.checkusername = checkUsername;
 module.exports.addGeoLocation = addGeoLocation;
