@@ -4,7 +4,7 @@ angular.module('main')
 
       // var showComments = false;
 
-      this.getBig = function(showComments) {
+      this.showCommentsFunc = function(showComments) {
         this.showComments = !this.showComments
         console.log(this.showComments)
         return this.showComments;
