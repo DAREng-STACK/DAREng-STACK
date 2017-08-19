@@ -1,12 +1,7 @@
 angular.module('main')
   .component('picsquare', {
     controller: function($http) {
-
-      // this.image = this.image;
-      //this.comments = this.image.comments;
-      //this.liked = this.image.likeCount;
-      //this.disliked = this.image.dislikeCount;
- 
+      
       this.postRequestHandler = function(data) {
         $http({
           method: 'POST',
