@@ -10,8 +10,8 @@ angular.module('main')
       this.postRequestHandler = function(data) {
         $http({
           method: 'POST',
-          url: '/imagechange' ,
-          data: { data } ,
+          url: '/imageChange' ,
+          data: {data} ,
           success: function(res) {
             console.log("Success", res)
           }
@@ -25,20 +25,20 @@ angular.module('main')
 
       this.handleLikeClick = function () {
         this.image.likeCount++;
-        // this.postRequestHandler(this.liked);
+        this.postRequestHandler(this.image);
         console.log(this.image.likeCount)
       }
 
       
       this.handleDislikeClick = function () {
        this.image.dislikeCount++;
-       // this.postRequestHandler(this.image);
+       this.postRequestHandler(this.image);
        console.log(this.image.dislikeCount)
       }
 
       this.handleCommentSubmit = function (comment) {
-        // this.postRequestHandler(this.image);
         this.image.comments.push(this.comment);
+        this.postRequestHandler(this.image);
         console.log(this.image.comments)
         this.comment = null;
       }

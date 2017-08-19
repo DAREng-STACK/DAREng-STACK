@@ -114,21 +114,16 @@ var saveUser = (user) => {
   })
 }
 
-// var selectImages = (callback, query) => {
-//   Image.find({query}, (err, results) => {
-//     if (err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, results);
-//     }
-//   });
-// }
 
-// var save = () => {
-//
-// }
+
+var update = (imageData) => {
+  Image.update({ _id: imageData.data._id }, { $set: { likeCount: imageData.data.likeCount, dislikeCount: imageData.data.dislikeCount, comments: imageData.data.comments }}, () => {
+    console.log(imageData.data ,'SUCCESS UPDATING DB! (BUT CHECK)')
+  });
+}
 
 module.exports.selectAllImages = selectAllImages;
 module.exports.save = save;
 module.exports.selectUser = selectUser;
 module.exports.saveUser = saveUser;
+module.exports.update = update;
