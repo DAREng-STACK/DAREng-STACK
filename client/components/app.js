@@ -17,7 +17,8 @@ angular.module('main')
       }, (response) => {
         console.log('GET REQUEST ERROR');
       });
-    };
+    }
+  })
 
 .service('serverComm', function($http) {
   this.getImages = function(/*params, callback*/) {
@@ -63,13 +64,9 @@ angular.module('main')
     controller: function(serverComm) {
       serverComm.getImages(/*this.renderimages*/);
       this.images = window.actualImageData;
-<<<<<<< HEAD
-      this.topfiveimages = [];
-=======
       this.topfiveimages = this.images.sort(function(a, b) {
         return b.voteCount - a.voteCount;
       });
->>>>>>> Refactor rendering of top five images to use sort function
       this.yourmostlikedimages = [];
       this.sortedbytimestampimages = [];
 
@@ -123,5 +120,5 @@ angular.module('main')
       // });
 
     },
-    templateUrl: '../templates/app.html',
+    templateUrl: '../templates/app.html'
   });

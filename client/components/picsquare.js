@@ -34,6 +34,6 @@ angular.module('main')
     templateUrl: '../templates/picsquare.html',
     bindings: {
       sortedbytimestampimages: '<',
-      images: '<'
+      image: '<'
     }
   });

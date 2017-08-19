@@ -6,6 +6,7 @@ var db = require('../database/index.js');
 var path = require('path');
 var os = require('os');
 var fs = require('fs');
+var imgur = require('../helpers/imgurapi.js');
 
 var Busboy = require('busboy');
 
@@ -35,14 +36,17 @@ app.post('/images', (req, res) => {
    });
   busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
     var saveTo = path.join(os.tmpDir(), path.basename(filename));
-    console.log('saveTo ', saveTo);
+    // console.log('saveTo ', saveTo);
     file.pipe(fs.createWriteStream(saveTo));
+    // console.log(file, 'FIIILLLEEEE');
+    imgur.postImageToImgur(saveTo, db.save);
+    // console.log('RESPONSE', res.body);
   });
   busboy.on('finish', function() {
     res.writeHead(200, { 'Connection': 'close' });
     res.end("That's all folks!");
   });
-  console.log(req.pipe(busboy),'REQQQBOD')
+  // console.log(req.pipe(busboy),'REQQQBOD')
   return req.pipe(busboy);
 });
 
