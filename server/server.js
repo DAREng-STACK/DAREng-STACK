@@ -4,11 +4,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var db = require('../database/index.js');
 var path = require('path');
-var os = require('os');
-var fs = require('fs');
 var imgur = require('../helpers/imgurapi.js');
-
-var Busboy = require('busboy');
 
 
 var app = express();
@@ -43,24 +39,12 @@ app.get('/images', function(req, res, next) {
 });
 
 app.post('/images', (req, res) => {
-  var busboy = new Busboy({
-    headers: req.headers,
-    defCharset: 'base64'
-   });
-  busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-    var saveTo = path.join(os.tmpDir(), path.basename(filename));
-    // console.log('saveTo ', saveTo);
-    file.pipe(fs.createWriteStream(saveTo));
-    // console.log(file, 'FIIILLLEEEE');
-    imgur.postImageToImgur(saveTo, db.save);
-    // console.log('RESPONSE', res.body);
-  });
-  busboy.on('finish', function() {
-    res.writeHead(200, { 'Connection': 'close' });
-    res.end("That's all folks!");
-  });
-  // console.log(req.pipe(busboy),'REQQQBOD')
-  return req.pipe(busboy);
+  console.log('req body', req.body);
+  var callBack = function (result) {
+    //callback sends imgur link back to client
+    res.send(result);
+  }
+  imgur.postImageToImgur(req.body, callBack);
 });
 
 app.get('/login', (req, res) => {

@@ -1,29 +1,31 @@
 angular.module('main')
 
 .component('postimage', {
-  controller: function (Upload, $timeout) {
-    this.uploadPic = function(file) {
-      console.log('YAY CLICK!! ', file);
-      file.upload = Upload.upload({
-        url: '/images',
-        data: { 
-          'file': file,
-          'name': file.name
-       }
-      });
+  controller: function($scope, angularFilepicker, serverComm) {
+
+    angularFilepicker.setKey('Al60Bq96KSauJLQY0F8Dbz');
   
-      file.upload.then(function (response) {
-        $timeout(function () {
-          file.result = response.data;
-        });
-      }, function (response) {
-        if (response.status > 0)
-          this.errorMsg = response.status + ': ' + response.data;
-      }, function (evt) {
-        // Math.min is to fix IE which reports 200% sometimes
-        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-      });
-      }
+    $scope.pickFile = pickFile;
+  
+    function pickFile() {
+      angularFilepicker.pick({ mimetype: "image/*" },
+          onSuccess
+      );
+    };
+
+    function onSuccess(Blob) {
+      console.log('blob result ', Blob);
+      let url = Blob.url;
+      let name = Blob.filename;
+      let data = {
+        'name': name,
+        'url': url
+      };
+      //on success invoke parent function form app component. 
+      serverComm.postContent(data);
+      //after post trigger app to get images... 
+    };
   },
+
   templateUrl: '../templates/postImage.html'
 });

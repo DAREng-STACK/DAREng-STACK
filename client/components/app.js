@@ -1,25 +1,4 @@
 angular.module('main')
-
-  .service('serverComm', function($http) {
-    this.getImages = function(/*params, callback*/) {
-      $http({
-        method: 'GET',
-        url: '/images',
-        // params: {
-        //     id: 'FKE7Brb'
-        // }
-      }).then((response) => {
-        console.log(response.data, 'GET REQUEST SUCCESS');
-        for (var i = 0; i < response.data.length; i++) {
-          window.actualImageData.push(response.data[i]);
-        }
-        // callback(response.data);
-      }, (response) => {
-        console.log('GET REQUEST ERROR');
-      });
-    }
-  })
-
 .service('serverComm', function($http) {
   this.getImages = function(/*params, callback*/) {
     $http({
@@ -44,13 +23,10 @@ angular.module('main')
       method: 'POST',
       url: '/images',
       data: data
-    }).then((err, res) => {
-      if (err) {
-        console.log('error')
-      }
-      console.log('POST REQUEST SUCCESS', res);
-    }, () => {
-      console.log('POST REQUEST ERROR')
+    }).then((resolve) => {
+      console.log('POST REQUEST SUCCESS', resolve);
+    }, (reject) => {
+      console.log('POST REQUEST ERROR', reject)
     });
   }
 
