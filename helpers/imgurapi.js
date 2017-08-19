@@ -1,4 +1,5 @@
 var request = require("request");
+var db = require('../database/index.js');
 
 var postImageToImgur = function(imgUrl, callBack) {
 
@@ -19,6 +20,7 @@ var postImageToImgur = function(imgUrl, callBack) {
     if (error) throw new Error(error);
     let result = JSON.parse(body);
     console.log('imgur xpost success', result.data.link);
+    db.save(result.data.link);
     callBack(result.data.link);
   });
 };

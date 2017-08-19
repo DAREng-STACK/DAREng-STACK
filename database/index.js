@@ -15,6 +15,8 @@ db.once('open', () => {
 });
 
 
+
+
 var userSchema = mongoose.Schema({
   userName: String,
   id: Number,
@@ -32,7 +34,8 @@ var imageSchema = mongoose.Schema({
   tags: Array,
   timeStamp: String,
   comments: Array,
-  voteCount: Number,
+  likeCount: Number,
+  dislikeCount: Number
 });
 
 // var commentSchema = mongoose.Schema({
@@ -77,25 +80,29 @@ var selectUser = (callback, query) => {
 
 var save = (image) => {
   var newImage = new Image({
-    id: image.id,
-    userId: image.userId,
-    imageUrl: image.link,
+    // id: image.id,
+    // userId: image.userId,
+    imageUrl: image,
     // timeStamp: image.timeStamp,
     geoLocation: null,
-    caption: image.description,
-    voteCount: 0,
-    tags: image.tags,
-    // comments: image.comments
+    // caption: image.description,
+    likeCount: 0,
+    dislikeCount: 0,
+    // tags: image.tags,
+    comments: []
   });
-  newImage.addGeoLocation();
-  newImage.save(function(err, res) {
-    if (err) {
-      return err;
-    }else{
-      return res;
-    }
-  });
-
+  // newImage.addGeoLocation();
+  // newImage.save(function(err, res) {
+  //   if (err) {
+  //     return err;
+  //   }else{
+  //     return res;
+  //   }
+  // });
+  newImage.save(function (err) {
+   if (err) return handleError(err); // saved!
+   });
+console.log(image, 'IMAGE STUFF IN DB!')
 }
 //
 var saveUser = (user) => {

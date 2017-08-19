@@ -1,4 +1,4 @@
-<div class="piccsquare container" style="border: 1px solid black">
+<div class="piccsquare container" >
   <!-- <img class="picsquare-entry-image" ng-src={{$ctrl.image.imageUrl}}/> -->
   <img style="max-width: 300px; max-height: 200px;" ng-src="http://webcore.altervista.org/ImgBigTrailer/il_signore_degli_anelli-la_compagnia_dell_anello_big.jpg" ng-model="showComments" ng-click="$ctrl.showCommentsFunc()">
   <br><br/>
@@ -12,7 +12,7 @@
    </label>
   <br><br/>
   <form ng-show="$ctrl.showComments" >
-   <p ng-repeat="comment in $ctrl.comments" style="border: 1px solid black; background: white">
+   <p ng-repeat="comment in $ctrl.comments" style="border: 1px solid black; background: white; width: 300px">
      {{comment}}
    </p>
    <input  type="textbox" ng-model="$ctrl.comment" style="width: 250px; margin-bottom: 30px; margin-top: 0;" placeholder="Write a comment...">
