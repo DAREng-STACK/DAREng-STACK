@@ -2,16 +2,16 @@
   <img style="max-width: 300px; max-height: 200px;" ng-src={{$ctrl.image.imageUrl}} ng-model="showComments" ng-click="$ctrl.showCommentsFunc()">
   <br><br/>
   <label>
-  {{$ctrl.liked}}
-  <img src="http://www.clker.com/cliparts/F/r/g/z/5/T/thumbs-up-md.png" style="height: 20px; width: 20px; margin-right: 220px;" ng-click="$ctrl.handleLikeClick()">
+  {{$ctrl.image.likeCount}}
+  <img src="http://www.clker.com/cliparts/F/r/g/z/5/T/thumbs-up-md.png" style="height: 20px; width: 20px; margin-right: 220px;" value="$ctrl.image.likeCount" ng-click="$ctrl.handleLikeClick($ctrl.image.likeCount)">
   </label>
   <label>
-  {{$ctrl.disliked}}
-  <img src="http://www.iconsplace.com/download/red-thumbs-down-256.png" style="height: 25px; width: 25px;" ng-click="$ctrl.handleDislikeClick($ctrl.image.dislikeCount)">
+  {{$ctrl.image.dislikeCount}}
+  <img src="http://www.iconsplace.com/download/red-thumbs-down-256.png" style="height: 25px; width: 25px;" value="$ctrl.image.dislikeCount" ng-click="$ctrl.handleDislikeClick(this.image.dislikeCount)">
    </label>
   <br><br/>
   <form ng-show="$ctrl.showComments" >
-   <p ng-repeat="comment in $ctrl.comments" style="border: 1px solid black; background: white; width: 300px">
+   <p ng-repeat="comment in $ctrl.image.comments" style="border: 1px solid black; background: white; width: 300px">
      {{comment}}
    </p>
    <input  type="textbox" ng-model="$ctrl.comment" style="width: 250px; margin-bottom: 30px; margin-top: 0;" placeholder="Write a comment...">

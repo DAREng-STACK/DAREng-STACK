@@ -2,14 +2,15 @@ angular.module('main')
   .component('picsquare', {
     controller: function($http) {
 
-      this.comments = [];
-      this.liked = 0;
-      this.disliked = 0;
+      // this.image = this.image;
+      //this.comments = this.image.comments;
+      //this.liked = this.image.likeCount;
+      //this.disliked = this.image.dislikeCount;
  
-      this.postRequestHandler = function(url, data) {
+      this.postRequestHandler = function(data) {
         $http({
           method: 'POST',
-          url: url ,
+          url: '/imagechange' ,
           data: { data } ,
           success: function(res) {
             console.log("Success", res)
@@ -22,22 +23,23 @@ angular.module('main')
         return this.showComments;
       }
 
-      this.handleLikeClick = () => {
-        this.liked++;
-        this.postRequestHandler('/likes', this.liked);
+      this.handleLikeClick = function () {
+        this.image.likeCount++;
+        // this.postRequestHandler(this.liked);
+        console.log(this.image.likeCount)
       }
 
       
-      this.handleDislikeClick = () => {
-       this.disliked++;
-       this.postRequestHandler('/dislikes', this.disliked);
-       // console.log(this.image.disliked)
+      this.handleDislikeClick = function () {
+       this.image.dislikeCount++;
+       // this.postRequestHandler(this.image);
+       console.log(this.image.dislikeCount)
       }
 
       this.handleCommentSubmit = function (comment) {
-        console.log(this.comment);
-        this.postRequestHandler('/comments', this.comment);
-        this.comments.push(this.comment);
+        // this.postRequestHandler(this.image);
+        this.image.comments.push(this.comment);
+        console.log(this.image.comments)
         this.comment = null;
       }
 
@@ -45,7 +47,7 @@ angular.module('main')
     templateUrl: '../templates/picsquare.html',
     bindings: {
       sortedbytimestampimages: '<',
-      images: '<',
-      image: '<'
+      images: '=',
+      image: '='
     }
   });
