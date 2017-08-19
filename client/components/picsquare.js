@@ -1,7 +1,14 @@
 angular.module('main')
   .component('picsquare', {
-    controller: () => {
+    controller: function() {
 
+      // var showComments = false;
+
+      this.getBig = function(showComments) {
+        this.showComments = !this.showComments
+        console.log(this.showComments)
+        return this.showComments;
+      }
 
       this.handleLikeClick = () => {
         //increase the count of likes the image has in the database

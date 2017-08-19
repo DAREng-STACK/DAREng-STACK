@@ -1,3 +1,5 @@
-<ul class="image-list">
-  <img class="picsquare-entry-image" ng-src={{$ctrl.image.imageUrl}}/>
-</ul>
+<div class="piccsquare container">
+  <!-- <img class="picsquare-entry-image" ng-src={{$ctrl.image.imageUrl}}/> -->
+  <img style="max-width: 300px; max-height: 200px;" ng-src="http://webcore.altervista.org/ImgBigTrailer/il_signore_degli_anelli-la_compagnia_dell_anello_big.jpg" ng-model="showComments" ng-click="$ctrl.getBig()" >
+  <input ng-show="$ctrl.showComments" type="textbox" >
+</div>
