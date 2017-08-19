@@ -11,7 +11,6 @@ angular.module('main')
             console.log("Success", res)
           }
         })
-        console.log(data);
       }
 
       this.showCommentsFunc = function(showComments) {
