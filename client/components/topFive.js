@@ -16,10 +16,10 @@ angular.module('main')
       //  <p>{{image.timestamp}}</p>
       //  <p>{{image.location}}</p>
 //    </div>
-  
+
   },
     templateUrl: '../templates/top-five.html',
     bindings: {
-      topfiveimages: '<'
+      top5img: '<'
     }
   });

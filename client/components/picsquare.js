@@ -1,5 +1,4 @@
 angular.module('main')
-
   .component('picsquare', {
     controller: () => {
 
@@ -34,6 +33,7 @@ angular.module('main')
     },
     templateUrl: '../templates/picsquare.html',
     bindings: {
-      sortedbytimestampimages: '<'
+      sortedbytimestampimages: '<',
+      image: '<'
     }
   });

@@ -30,9 +30,16 @@ body {
 .navbar .container {
   width: auto;
 }
-picsquare {
+.image-list {
+  display: inline-block;
+}
+.picsquare-entry-image {
   width: 200px;
   height: 200px;
+}
+.topfive-entry-image {
+  width: 125px;
+  height: 125px;
 }
 .thumbnail {
   background-color: rgba(172, 247, 255, 0.75)
