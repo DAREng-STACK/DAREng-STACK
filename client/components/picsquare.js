@@ -5,21 +5,7 @@ angular.module('main')
       this.comments = [];
       this.liked = 0;
       this.disliked = 0;
-
-      this.getImageData = function () {
-        $http({
-          method: 'GET',
-          url: '/images' ,
-          success: function(res) {
-            console.log("Success", res)
-            //pull different parts out of respose to put in appropriate places
-            //comments.push(res.comments);
-            //this.liked = res.liked;
-            //this.disliked = res.disliked;
-          }
-        })
-      }
-
+ 
       this.postRequestHandler = function(url, data) {
         $http({
           method: 'POST',
@@ -45,6 +31,7 @@ angular.module('main')
       this.handleDislikeClick = () => {
        this.disliked++;
        this.postRequestHandler('/dislikes', this.disliked);
+       // console.log(this.image.disliked)
       }
 
       this.handleCommentSubmit = function (comment) {
@@ -58,6 +45,7 @@ angular.module('main')
     templateUrl: '../templates/picsquare.html',
     bindings: {
       sortedbytimestampimages: '<',
+      images: '<',
       image: '<'
     }
   });

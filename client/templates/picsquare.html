@@ -1,6 +1,5 @@
 <div class="piccsquare container" >
-  <!-- <img class="picsquare-entry-image" ng-src={{$ctrl.image.imageUrl}}/> -->
-  <img style="max-width: 300px; max-height: 200px;" ng-src="http://webcore.altervista.org/ImgBigTrailer/il_signore_degli_anelli-la_compagnia_dell_anello_big.jpg" ng-model="showComments" ng-click="$ctrl.showCommentsFunc()">
+  <img style="max-width: 300px; max-height: 200px;" ng-src={{$ctrl.image.imageUrl}} ng-model="showComments" ng-click="$ctrl.showCommentsFunc()">
   <br><br/>
   <label>
   {{$ctrl.liked}}
@@ -8,7 +7,7 @@
   </label>
   <label>
   {{$ctrl.disliked}}
-  <img src="http://www.iconsplace.com/download/red-thumbs-down-256.png" style="height: 25px; width: 25px;" ng-click="$ctrl.handleDislikeClick()">
+  <img src="http://www.iconsplace.com/download/red-thumbs-down-256.png" style="height: 25px; width: 25px;" ng-click="$ctrl.handleDislikeClick($ctrl.image.dislikeCount)">
    </label>
   <br><br/>
   <form ng-show="$ctrl.showComments" >
