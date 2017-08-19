@@ -10,16 +10,16 @@ angular.module('main')
         return this.showComments;
       }
 
+      this.liked = 0;
+      
       this.handleLikeClick = () => {
-        //increase the count of likes the image has in the database
-        //this may involve sending a post request to update that information permanently in the db?
-        //like count displayed should increment up by one
+        this.liked++;
       }
 
+      this.disliked = 0;
+
       this.handleDislikeClick = () => {
-        //decrease the count of likes the image has in the database
-        //this may involve sending a post request to update that information permanently in the db?
-        //dislike count displayed should increment up by one
+       this.disliked++;
       }
 
       this.postComment = (textOfComment) => {
