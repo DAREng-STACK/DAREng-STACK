@@ -1,17 +1,12 @@
 angular.module('main')
 .service('serverComm', function($http) {
-  this.getImages = function(/*params, callback*/) {
+  this.getImages = function(cb) {
     $http({
       method: 'GET',
       url: '/images',
-      // params: {
-      //     id: 'FKE7Brb'
-      // }
     }).then((response) => {
       console.log(response.data, 'GET REQUEST SUCCESS');
-      for (var i = 0; i < response.data.length; i++) {
-        window.actualImageData.push(response.data[i]);
-      }
+      cb(response.data);
     }, (response) => {
           console.log('GET REQUEST ERROR')
     });
@@ -34,21 +29,21 @@ angular.module('main')
 
   .component('app', {
     controller: function(serverComm) {
-      serverComm.getImages(/*this.renderimages*/);
-      this.images = window.actualImageData;
-      this.topfiveimages = this.images.sort(function(a, b) {
-        return b.voteCount - a.voteCount;
-      });
-      this.yourmostlikedimages = [];
-      this.sortedbytimestampimages = [];
+      this.images = [];
+      this.topfiveimages = [];
 
-      this.sortByTimeStamp = (dataFromGetRequest) => {
-        //iterate through all dataFromGetRequest
-        //sort the data by time (from oldes to newest)
-        //push results to topfiveimages array
-      }
-
-
+      this.$onInit = function () {
+        serverComm.getImages((result) => {
+          this.images = result.sort(function (a,b) {
+            return b.timeStamp - a.timeStamp;
+          })
+          console.log('images sorted ', this.images);
+        });
+        /*
+        this.topfiveimages = this.images.sort(function(a, b) {
+          return b.voteCount - a.voteCount; 
+        }); */
+      };
     },
     templateUrl: '../templates/app.html'
   });

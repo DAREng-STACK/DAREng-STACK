@@ -32,7 +32,7 @@ var imageSchema = mongoose.Schema({
   caption: String,
   geoLocation: String,
   tags: Array,
-  timeStamp: String,
+  timeStamp: Number,
   comments: Array,
   likeCount: Number,
   dislikeCount: Number
@@ -83,7 +83,7 @@ var save = (image) => {
     // id: image.id,
     // userId: image.userId,
     imageUrl: image,
-    // timeStamp: image.timeStamp,
+    timeStamp: Date.now(),
     geoLocation: null,
     // caption: image.description,
     likeCount: 0,
