@@ -1,42 +1,42 @@
 angular.module('main')
   .component('picsquare', {
-    controller: function() {
+    controller: function($http) {
 
-      // var showComments = false;
+      this.postRequestHandler = function(url, data) {
+        $http({
+          method: 'POST',
+          url: url ,
+          data: { data } ,
+          success: function(res) {
+            console.log("Success", res)
+          }
+        })
+        console.log(data);
+      }
 
       this.showCommentsFunc = function(showComments) {
         this.showComments = !this.showComments
-        console.log(this.showComments)
         return this.showComments;
       }
 
       this.liked = 0;
-      
       this.handleLikeClick = () => {
         this.liked++;
+        this.postRequestHandler('/likes', this.liked);
       }
 
       this.disliked = 0;
-
       this.handleDislikeClick = () => {
        this.disliked++;
+       this.postRequestHandler('/dislikes', this.disliked);
       }
 
-      this.postComment = (textOfComment) => {
-        //(button that the user can click)
-        //(when clicked a textbox will appear)
-        //when text is submitted
-          //post request to db to save the text of the comment to the image along with the username of the user who posed the comment (current user logged in)
-          //somehow this image needs to be rerendered so the new comment will be displayed
+      this.handleCommentSubmit = function (comment) {
+        console.log(this.comment);
+        this.postRequestHandler('/comments', this.comment);
+        this.comment = null;
       }
 
-      this.handleClick = () => {
-        //picture expands (to full screen?)
-        //comments become visable
-        //likes/dislikes are visable
-        //comment button becomes available
-        //ability to like/dislike is available
-      }
     },
     templateUrl: '../templates/picsquare.html',
     bindings: {

@@ -17,6 +17,19 @@ app.use('/', express.static(path.join(__dirname, '../')));
 app.use('/', express.static(path.join(__dirname, '../client')));
 
 //routes
+app.post('/comments', function(req, res) {
+  console.log(req.body);
+});
+
+app.post('/likes', function(req, res) {
+  console.log(req.body);
+});
+
+app.post('/dislikes', function(req, res) {
+  console.log(req.body);
+});
+
+
 app.get('/images', function(req, res, next) {
   console.log('GET REQUEST IN SERVER')
 

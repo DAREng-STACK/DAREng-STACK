@@ -1,15 +1,18 @@
-<div class="piccsquare container">
+<div class="piccsquare container" style="border: 1px solid black">
   <!-- <img class="picsquare-entry-image" ng-src={{$ctrl.image.imageUrl}}/> -->
-  <img style="max-width: 300px; max-height: 200px;" ng-src="http://webcore.altervista.org/ImgBigTrailer/il_signore_degli_anelli-la_compagnia_dell_anello_big.jpg" ng-model="showComments" ng-click="$ctrl.showCommentsFunc()" >
+  <img style="max-width: 300px; max-height: 200px;" ng-src="http://webcore.altervista.org/ImgBigTrailer/il_signore_degli_anelli-la_compagnia_dell_anello_big.jpg" ng-model="showComments" ng-click="$ctrl.showCommentsFunc()">
   <br><br/>
   <label>
   {{$ctrl.liked}}
-  <img src="http://www.clker.com/cliparts/F/r/g/z/5/T/thumbs-up-md.png" style="height: 20px; width: 20px;" ng-click="$ctrl.handleLikeClick()">
+  <img src="http://www.clker.com/cliparts/F/r/g/z/5/T/thumbs-up-md.png" style="height: 20px; width: 20px; margin-right: 220px;" ng-click="$ctrl.handleLikeClick()">
   </label>
   <label>
   {{$ctrl.disliked}}
   <img src="http://www.iconsplace.com/download/red-thumbs-down-256.png" style="height: 25px; width: 25px;" ng-click="$ctrl.handleDislikeClick()">
    </label>
   <br><br/>
-  <input ng-show="$ctrl.showComments" type="textbox" style="width: 300px;" placeholder="Write a comment...">
+  <form ng-show="$ctrl.showComments" >
+   <input  type="textbox" ng-model="$ctrl.comment" style="width: 250px; margin-bottom: 30px; margin-top: 0;" placeholder="Write a comment...">
+   <input type="submit" name="Submit" ng-click="$ctrl.handleCommentSubmit($crtl.comment)">
+  </form>
 </div>
