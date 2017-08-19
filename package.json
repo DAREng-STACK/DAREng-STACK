@@ -17,6 +17,7 @@
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "busboy": "^0.2.14",
+    "crypto": "^1.0.1",
     "express": "^4.15.4",
     "google-maps": "^3.2.1",
     "jquery": "^3.2.1",

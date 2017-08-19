@@ -6,7 +6,7 @@ var db = require('../database/index.js');
 var path = require('path');
 var os = require('os');
 var fs = require('fs');
- 
+
 var Busboy = require('busboy');
 
 
@@ -29,7 +29,7 @@ app.get('/images', function(req, res, next) {
 });
 
 app.post('/images', (req, res) => {
-  var busboy = new Busboy({ 
+  var busboy = new Busboy({
     headers: req.headers,
     defCharset: 'base64'
    });
@@ -46,26 +46,29 @@ app.post('/images', (req, res) => {
   return req.pipe(busboy);
 });
 
-app.get('/signup', (req, res) => {
+app.get('/login', (req, res) => {
   console.log(req.body, "@@@@@@@@@@@@@@@")
-
     db.selectUser((err, data) => {
       if(err){
-        console.log('ERRROR', err, "ERROR");
+        console.log('username or password incorrect');
+        res.redirect('/login')
       }
-      console.log(data);
       res.send(data);
     },
     req.body);
 })
+
 app.post('/signup', (req, res) => {
   console.log(req.body, '@#$%@#@$#@%')
+  var username = req.body.username;
+  var password = req.body.password;
   db.selectUser((err, data) => {
     if(err){
       console.log('ERRROR', err, "ERROR");
+      db.saveUser(data)
+    }else{
+      res.redirect('/login');
     }
-    console.log(data, "@DFSEWAF");
-    res.send(data);
   },
   req.body);
 })

@@ -96,6 +96,15 @@ var save = (image) => {
   });
 
 }
+//
+var saveUser = (user) => {
+  var newUser = new User({
+    userName: user.name,
+    hashPass: String,
+    salt: String,
+    voteCount: Number
+  })
+}
 
 // var selectImages = (callback, query) => {
 //   Image.find({query}, (err, results) => {
@@ -114,3 +123,4 @@ var save = (image) => {
 module.exports.selectAllImages = selectAllImages;
 module.exports.save = save;
 module.exports.selectUser = selectUser;
+module.exports.saveUser = saveUser;
