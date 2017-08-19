@@ -2,6 +2,8 @@ angular.module('main')
   .component('picsquare', {
     controller: function($http) {
 
+      this.comments = [];
+
       this.postRequestHandler = function(url, data) {
         $http({
           method: 'POST',
@@ -33,6 +35,7 @@ angular.module('main')
       this.handleCommentSubmit = function (comment) {
         console.log(this.comment);
         this.postRequestHandler('/comments', this.comment);
+        this.comments.push(this.comment);
         this.comment = null;
       }
 

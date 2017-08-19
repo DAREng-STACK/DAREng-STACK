@@ -12,6 +12,9 @@
    </label>
   <br><br/>
   <form ng-show="$ctrl.showComments" >
+   <p ng-repeat="comment in $ctrl.comments" style="border: 1px solid black; background: white">
+     {{comment}}
+   </p>
    <input  type="textbox" ng-model="$ctrl.comment" style="width: 250px; margin-bottom: 30px; margin-top: 0;" placeholder="Write a comment...">
    <input type="submit" name="Submit" ng-click="$ctrl.handleCommentSubmit($crtl.comment)">
   </form>
