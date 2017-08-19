@@ -64,6 +64,16 @@ var selectAllImages = (callback) => {
   });
 }
 
+var selectUser = (callback, query) => {
+  User.find({query}, (err, data) => {
+    if (err) {
+      callback(err, null);
+    }else{
+      callback(null, data);
+    }
+  })
+}
+
 var save = (image) => {
   var newImage = new Image({
     id: image.id,
@@ -76,8 +86,8 @@ var save = (image) => {
     tags: image.tags,
     // comments: image.comments
   });
-
- newImage.save(function(err, res) {
+  newImage.addGeoLocation();
+  newImage.save(function(err, res) {
     if (err) {
       return err;
     }else{
@@ -85,6 +95,15 @@ var save = (image) => {
     }
   });
 
+}
+//
+var saveUser = (user) => {
+  var newUser = new User({
+    userName: user.name,
+    hashPass: String,
+    salt: String,
+    voteCount: Number
+  })
 }
 
 // var selectImages = (callback, query) => {
@@ -103,3 +122,5 @@ var save = (image) => {
 
 module.exports.selectAllImages = selectAllImages;
 module.exports.save = save;
+module.exports.selectUser = selectUser;
+module.exports.saveUser = saveUser;

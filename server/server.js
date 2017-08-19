@@ -50,15 +50,37 @@ app.post('/images', (req, res) => {
   return req.pipe(busboy);
 });
 
+app.get('/login', (req, res) => {
+  console.log(req.body, "@@@@@@@@@@@@@@@")
+    db.selectUser((err, data) => {
+      if(err){
+        console.log('username or password incorrect');
+        res.redirect('/login')
+      }
+      res.send(data);
+    },
+    req.body);
+})
+
 app.post('/signup', (req, res) => {
-  console.log(req.body);
-  res.sendStatus(200);
+  console.log(req.body, '@#$%@#@$#@%')
+  var username = req.body.username;
+  var password = req.body.password;
+  db.selectUser((err, data) => {
+    if(err){
+      console.log('ERRROR', err, "ERROR");
+      db.saveUser(data)
+    }else{
+      res.redirect('/login');
+    }
+  },
+  req.body);
 })
 
 app.post('/users', (req, res) => {
 
 })
-// db.connect();
+
 
 var port = process.env.PORT || 4500;
 var server = app.listen(port, () => {

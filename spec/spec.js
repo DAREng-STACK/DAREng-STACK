@@ -30,33 +30,33 @@ describe('Server Unit Tests', function () {
   });
 });
 
-describe('Server Unit Tests', function () {
+describe('database Unit Tests', function () {
   var server;
   beforeEach(function () {
-    server = require('./../server/server.js');
+    db = require('./../database/index.js');
   });
   it('responds to /', function testSlash(done) {
     request(server)
-      .get('/')
-      .expect(200, done);
+      db.get('/')
+      db.expect(200, done);
   });
   it('responds to /images', function testPath(done) {
     console.log('test image route')
     request(server)
-      .get('/images')
-      .expect(302, done);
+      db.get('/images')
+      db.expect(302, done);
   });
   it('responds to /login', function testPath(done) {
     console.log('test login route')
     request(server)
-      .get('/login')
-      .expect(302, done);
+      db.get('/login')
+      db.expect(302, done);
   });
   it('responds to /signup', function testPath(done) {
     console.log('test signup route')
     request(server)
-      .get('/signup')
-      .expect(201, done);
+      db.get('/signup')
+      db.expect(201, done);
   });
 });
 
