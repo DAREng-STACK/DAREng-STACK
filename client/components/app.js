@@ -1,6 +1,6 @@
 angular.module('main')
   .component('app', {
-    controller: function(serverComm, Lightbox) {
+    controller: function(serverComm) {
       this.images = [];
       this.topfiveimages = [];
       this.location = {};
@@ -22,10 +22,6 @@ angular.module('main')
         this.topfiveimages = this.images.sort(function(a, b) {
           return b.voteCount - a.voteCount;
         }); */
-      };
-
-      this.openLightboxModal = function (index) {
-        Lightbox.openModal(this.images, index);
       };
     },
     templateUrl: '../templates/app.html'
