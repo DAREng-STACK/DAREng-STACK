@@ -1,7 +1,9 @@
 angular.module('main')
 
 .component('postimage', {
-
+  bindings: {
+    location: '=',
+  },
   controller: function($scope, angularFilepicker, serverComm) {
     angularFilepicker.setKey('Al60Bq96KSauJLQY0F8Dbz');
 

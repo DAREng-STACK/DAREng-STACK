@@ -30,7 +30,7 @@ var imageSchema = mongoose.Schema({
   userId: Number,
   imageUrl: String,
   caption: String,
-  geoLocation: Object,
+  geoLocation: Object ,
   tags: Array,
   timeStamp: Number,
   comments: Array,
@@ -48,7 +48,8 @@ var User = mongoose.model('User', userSchema, 'users');
 var Image = mongoose.model('Image', imageSchema, 'images');
 // var Comment = mongoose.model('Comment', commentSchema, 'users');
 
-var selectAllImages = (callback) => {
+var selectAllImages = (location, callback) => {
+  // Image.box
   Image.find({}, (err, data) => {
     if (err) {
       callback(err, null);
