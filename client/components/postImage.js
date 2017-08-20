@@ -19,7 +19,7 @@ angular.module('main')
       let name = Blob.filename;
       let data = {
         'name': name,
-        'url': url,
+        'url': url
       };
       console.log(data);
       //on success invoke parent function form app component.
