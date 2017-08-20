@@ -84,7 +84,7 @@ var save = (image) => {
     // userId: image.userId,
     imageUrl: image,
     timeStamp: Date.now(),
-    geoLocation: null,
+    geoLocation: image.geoLocation,
     // caption: image.description,
     likeCount: 0,
     dislikeCount: 0,

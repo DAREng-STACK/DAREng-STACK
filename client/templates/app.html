@@ -21,8 +21,8 @@
 
 <div class="container-fluid theme-showcase" role="main"> <!--main body grid start -->
   <div class="col-xs-8">
-    <heatmap />
-    <postimage />
+    <heatmap location="$ctrl.location"/>
+    <postimage location="$ctrl.location"/>
     <picsquare ng-repeat="image in $ctrl.images | limitTo:30" image="image"/>
   </div>
   <div class="col-xs-1" />

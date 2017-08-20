@@ -1,9 +1,14 @@
 angular.module('main')
 
 .component('heatmap', {
-  controller: ($scope) => {
+  bindings: {
+    location: '=',
+  },
+  controller: () => {
+    // console.log($scope)
     var map;
     var infoWindow;
+    setTimeout(()=>{console.log(this.location)}, 5000)
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
