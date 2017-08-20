@@ -26,7 +26,6 @@ app.get('/images', function(req, res, next) {
     if(err){
       console.log('err');
     }
-    // console.log(selected)
     res.send(selected);
   });
 });
@@ -34,7 +33,6 @@ app.get('/images', function(req, res, next) {
 app.post('/images', (req, res) => {
   console.log('req body', req.body);
   var callBack = function (result) {
-    //callback sends imgur link back to client
     res.send(result);
   }
   imgur.postImageToImgur(req.body, callBack);
