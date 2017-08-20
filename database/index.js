@@ -30,7 +30,7 @@ var imageSchema = mongoose.Schema({
   userId: Number,
   imageUrl: String,
   caption: String,
-  geoLocation: String,
+  geoLocation: Object,
   tags: Array,
   timeStamp: Number,
   comments: Array,
@@ -78,13 +78,14 @@ var selectUser = (callback, query) => {
   })
 }
 
-var save = (image) => {
+var saveImage = (imageUrl, location) => {
+  console.log(location);
   var newImage = new Image({
     // id: image.id,
     // userId: image.userId,
-    imageUrl: image,
+    imageUrl: imageUrl,
     timeStamp: Date.now(),
-    geoLocation: null,
+    geoLocation: location,
     // caption: image.description,
     likeCount: 0,
     dislikeCount: 0,
@@ -99,10 +100,10 @@ var save = (image) => {
   //     return res;
   //   }
   // });
-  newImage.save(function (err) {
-   if (err) return handleError(err); // saved!
+  newImage.save(function (err, res) {
+   if (err) console.log('error', err); // saved!
    });
-console.log(image, 'IMAGE STUFF IN DB!')
+// console.log(image, 'IMAGE STUFF IN DB!')
 }
 //
 var saveUser = (user) => {
@@ -123,7 +124,7 @@ var update = (imageData) => {
 }
 
 module.exports.selectAllImages = selectAllImages;
-module.exports.save = save;
+module.exports.saveImage = saveImage;
 module.exports.selectUser = selectUser;
 module.exports.saveUser = saveUser;
 module.exports.update = update;
