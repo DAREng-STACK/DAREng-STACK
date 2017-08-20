@@ -20,8 +20,6 @@ angular.module('main')
           this.topfiveimages = this.images.sort(function(a, b) {
             return b.likeCount - a.likeCount;
         });
-          console.log('top 5', this.topfiveimages);
-          console.log('images sorted ', this.images);
         }); 
       };
 

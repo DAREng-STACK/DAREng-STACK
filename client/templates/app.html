@@ -44,9 +44,9 @@
   <div class="col-xs-3">
   <br></br>
     <h3>
-      Most Liked Images
+      Top Images
     </h3>
-    <topfive ng-repeat="top5img in $ctrl.topfiveimages | limitTo:5" top5img="top5img"/>
+    <img ng-click="$ctrl.openLightboxModal($index)" ng-repeat="top5img in $ctrl.topfiveimages | limitTo:5" ng-src={{top5img.imageUrl}} class="col-xs-3 thumbnail"/>
   </div>
 </div> <!--/ Main container ends-->
 <yourmostliked />
