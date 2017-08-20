@@ -16,12 +16,13 @@ angular.module('main')
           this.images = result.sort(function (a,b) {
             return b.timeStamp - a.timeStamp;
           })
-          console.log('images sorted ', this.images);
+
+          this.topfiveimages = this.images.sort(function(a, b) {
+            return b.likeCount - a.likeCount;
         });
-        /*
-        this.topfiveimages = this.images.sort(function(a, b) {
-          return b.voteCount - a.voteCount;
-        }); */
+          console.log('top 5', this.topfiveimages);
+          console.log('images sorted ', this.images);
+        }); 
       };
 
       this.openLightboxModal = function (index) {
