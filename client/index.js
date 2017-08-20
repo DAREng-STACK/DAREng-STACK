@@ -2,6 +2,9 @@ angular.module('main', ['bootstrapLightbox'])
   .config(function($sceDelegateProvider, LightboxProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([ 'self' ]);
     LightboxProvider.templateUrl = './templates/pic-modal.html';
+    LightboxProvider.getImageUrl = function (image) {
+      return image.imageUrl;
+    };
   })
   .service('angularFilepicker', function($window){
     return $window.filepicker;
@@ -11,14 +14,15 @@ angular.module('main', ['bootstrapLightbox'])
       $http({
         method: 'GET',
         url: '/images',
-      }).then(
-        (resolve) => {cb(resolve.data);},
-        (reject) => {console.log('GET REQUEST ERROR', reject)}
-      );
+      }).then((response) => {
+        console.log(response.data, 'GET REQUEST SUCCESS');
+        cb(response.data);
+      }, (response) => {
+            console.log('GET REQUEST ERROR')
+      });
     };
 
     this.postContent = function(data) {
-<<<<<<< 99e9731674d40d0dbc4c9ce42ea44c41078602a0
       this.getLocation( (result) => {
         data.geoLocation = result;
         console.log(data);
@@ -46,16 +50,6 @@ angular.module('main', ['bootstrapLightbox'])
           console.log('Could not find location')
         })
       }
-=======
-      $http({
-        method: 'POST',
-        url: '/images',
-        data: data
-      }).then(
-        (resolve) => {},
-        (reject) => {console.log('POST REQUEST ERROR', reject)}
-      );
->>>>>>> code cleanup and style add, cleanup package-lock json of unused modules.
     }
 
     })

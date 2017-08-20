@@ -8,7 +8,7 @@ div {
   text-align: center;
   background-color: #a991E8; /* Old browsers */
   background-image: -webkit-gradient(linear, left top, left bottom, from(#a991E8), to(#8976BB));
-  background-image: -webkit-linear-gradient(top, #A891E8 0%, #8976BB 100%);
+  background-image: -webkit-linear-gradient(top, #a991E8 0%, #8976BB 100%);
   background-image:      -o-linear-gradient(top, #a991E8 0%, #8976BB 100%);
   background-image:         linear-gradient(to bottom, #a991E8 0%,#8976BB 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a991E8', endColorstr='#8976BB',GradientType=0 ); /* IE6-9 */
@@ -22,7 +22,7 @@ username {
   background-color: #A2E981;
 }
 body {
-  background-color: rgba(128, 128, 128, 0.62);
+  background-color: grey;
   padding-top: 70px;
   padding-bottom: 30px;
 
@@ -33,9 +33,9 @@ body {
 .image-list {
   display: inline-block;
 }
-.modal-body {
-  background-color: #FFEDAE;
-  border-radius: 4px;
+picsquare {
+  width: 200px;
+  height: 200px;
 }
 .topfive-entry-image {
   width: 125px;
@@ -53,15 +53,6 @@ body {
 }
 #map {
   height: 500px;
-}
-.btn-primary {
-  background-color: #A2E891;
-}
-.btn-success {
-  background-color: #ACF7FF;
-}
-.btn-danger {
-  background-color: #FFB4BB
 }
 /* Optional: Makes the sample page fill the window. 
 html, body {

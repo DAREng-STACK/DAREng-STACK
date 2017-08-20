@@ -8,7 +8,9 @@ angular.module('main')
     $scope.pickFile = pickFile;
 
     function pickFile() {
-      angularFilepicker.pick({ mimetype: "image/*" }, onSuccess);
+      angularFilepicker.pick({ mimetype: "image/*" },
+          onSuccess
+      );
     };
 
     function onSuccess(Blob) {
