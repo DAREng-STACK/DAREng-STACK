@@ -31,11 +31,11 @@
       <postimage />
     </div>
     <div class="row">
-      <picsquare 
+      <img 
         ng-click="$ctrl.openLightboxModal($index)"
         ng-repeat="image in $ctrl.images | limitTo:30" 
-        image="image"
-        class="col-xs-3"
+        ng-src={{image.imageUrl}}
+        class="col-xs-3 thumbnail"
       />
     </div>
 >>>>>>> add modal template provider and custom template

@@ -1,20 +1,15 @@
 <div class="modal-body">
-<!-- navigation -->
-<div class="lightbox-nav">
-  <!-- close button -->
-  <button class="close" aria-hidden="true" ng-click="$dismiss()">×</button>
-</div>
-
-<div class="lightbox-image-container">
-  <!-- caption -->
-  <div class="lightbox-image-caption">
-    <span>{{Lightbox.imageCaption}}</span>
+  <!-- navigation -->
+  <div class="lightbox-nav">
+    <!-- close button -->
+    <button class="close" aria-hidden="true" ng-click="$dismiss()">×</button>
   </div>
-
-  <!-- image -->
-  <img 
-      lightbox-src="{{Lightbox.imageUrl}}"
-  >
-
-</div>
+  <div class="lightbox-image-container">
+    <!-- caption -->
+    <div class="lightbox-image-caption">
+      <span>{{Lightbox.caption}}</span>
+    </div>
+    <!-- passes image object to picsquare component -->
+    <picsquare image="Lightbox.image" />
+  </div>
 </div>
