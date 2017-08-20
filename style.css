@@ -33,7 +33,7 @@ body {
 .image-list {
   display: inline-block;
 }
-.picsquare-entry-image {
+picsquare {
   width: 200px;
   height: 200px;
 }
@@ -42,7 +42,9 @@ body {
   height: 125px;
 }
 .thumbnail {
-  background-color: rgba(172, 247, 255, 0.75)
+  background-color: rgba(172, 247, 255, 0.75);
+  width: 200px;
+  height: 200px;
 
 }
 .img-circle {

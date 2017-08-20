@@ -21,9 +21,24 @@
 
 <div class="container-fluid theme-showcase" role="main"> <!--main body grid start -->
   <div class="col-xs-8">
+<<<<<<< ff991932fae7044abe37194e21f1b11caf67626e
     <heatmap location="$ctrl.location"/>
     <postimage location="$ctrl.location"/>
     <picsquare ng-repeat="image in $ctrl.images | limitTo:30" image="image"/>
+=======
+    <div class="row">
+      <heatmap />
+      <postimage />
+    </div>
+    <div class="row">
+      <picsquare 
+        ng-click="$ctrl.openLightboxModal($index)"
+        ng-repeat="image in $ctrl.images | limitTo:30" 
+        image="image"
+        class="col-xs-3"
+      />
+    </div>
+>>>>>>> add modal template provider and custom template
   </div>
   <div class="col-xs-1" />
   <div class="col-xs-3">

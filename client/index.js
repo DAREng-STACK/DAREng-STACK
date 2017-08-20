@@ -1,6 +1,7 @@
 angular.module('main', ['bootstrapLightbox'])
-  .config(function($sceDelegateProvider) {
+  .config(function($sceDelegateProvider, LightboxProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([ 'self' ]);
+    LightboxProvider.templateUrl = './templates/pic-modal.html';
   })
   .service('angularFilepicker', function($window){
     return $window.filepicker;
