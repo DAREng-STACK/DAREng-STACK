@@ -18,7 +18,6 @@ angular.module('main', ['bootstrapLightbox'])
     };
 
     this.postContent = function(data) {
-<<<<<<< 99e9731674d40d0dbc4c9ce42ea44c41078602a0
       this.getLocation( (result) => {
         data.geoLocation = result;
         console.log(data);
@@ -46,16 +45,6 @@ angular.module('main', ['bootstrapLightbox'])
           console.log('Could not find location')
         })
       }
-=======
-      $http({
-        method: 'POST',
-        url: '/images',
-        data: data
-      }).then(
-        (resolve) => {},
-        (reject) => {console.log('POST REQUEST ERROR', reject)}
-      );
->>>>>>> code cleanup and style add, cleanup package-lock json of unused modules.
     }
 
     })
