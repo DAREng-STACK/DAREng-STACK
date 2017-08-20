@@ -20,9 +20,8 @@ app.post('/imageChange', function(req, res) {
 });
 
 app.get('/images', function(req, res, next) {
-  console.log('GET REQUEST IN SERVER', req)
 
-  db.selectAllImages(req.body.geoLocation, (err, selected) => {
+  db.selectAllImages(req.query.geoLocation, (err, selected) => {
     if(err){
       console.log('err');
     }

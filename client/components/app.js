@@ -7,6 +7,7 @@ angular.module('main')
 
       this.$onInit = function () {
         serverComm.getImages((result) => {
+          console.log(result)
           this.images = result.sort(function (a,b) {
             return b.timeStamp - a.timeStamp;
           })

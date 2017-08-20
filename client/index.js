@@ -8,19 +8,25 @@ angular.module('main', ['bootstrapLightbox'])
   })
   .service('serverComm', function($http) {
     this.getImages = function(cb) {
-      $http({
-        method: 'GET',
-        url: '/images',
-      }).then(
-        (resolve) => {cb(resolve.data);},
-        (reject) => {console.log('GET REQUEST ERROR', reject)}
-      );
+      this.getLocation ( (results) => {
+        var data = {};
+        data.geoLocation = results;
+        console.log(data.geoLocation, '@DFA')
+        $http({
+          method: 'GET',
+          url: '/images',
+          params: data,
+        }).then(
+          (resolve) => {cb(resolve.data);},
+          (reject) => {console.log('GET REQUEST ERROR', reject)}
+        );
+      })
     };
 
     this.postContent = function(data) {
       this.getLocation( (result) => {
         data.geoLocation = result;
-        console.log(data);
+        console.log(result);
         $http({
           method: 'POST',
           url: '/images',
@@ -32,14 +38,15 @@ angular.module('main', ['bootstrapLightbox'])
         });
       })
     }
-  
+
     this.getLocation = (cb) => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
+          var pos = [
+            position.coords.latitude,
+            position.coords.longitude
+          ];
+          console.log(pos)
           cb(pos);
         }, function() {
           console.log('Could not find location')

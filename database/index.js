@@ -30,7 +30,7 @@ var imageSchema = mongoose.Schema({
   userId: Number,
   imageUrl: String,
   caption: String,
-  geoLocation: Object ,
+  geoLocation: Array,
   tags: Array,
   timeStamp: Number,
   comments: Array,
@@ -49,14 +49,24 @@ var Image = mongoose.model('Image', imageSchema, 'images');
 // var Comment = mongoose.model('Comment', commentSchema, 'users');
 
 var selectAllImages = (location, callback) => {
-  // Image.box
-  Image.find({}, (err, data) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, data);
-    }
-  });
+  var lat = location[0];
+  var lng = location[1];
+  var lowerleft = [lat-0.3,lng-0.3];
+  var upperright = [lat+0.3, lng+0.3];
+  Image.where('geoLocation').within().box(lowerleft, upperright)
+    .then( function(value){
+      console.log(value)
+      callback(null, value);
+    }, function(value){
+      callback(value, null);
+    })
+  // Image.find({}, (err, data) => {
+  //   if (err) {
+  //     callback(err, null);
+  //   } else {
+  //     callback(null, data);
+  //   }
+  // });
 }
 
  var selectImages = (callback, query) => {
