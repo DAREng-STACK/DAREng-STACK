@@ -47,6 +47,7 @@ var imageSchema = mongoose.Schema({
 var User = mongoose.model('User', userSchema, 'users');
 var Image = mongoose.model('Image', imageSchema, 'images');
 // var Comment = mongoose.model('Comment', commentSchema, 'users');
+<<<<<<< e8bbc3db39bb89ef951217082c5b30f93c4f7747
 var findNear = function(location, cb) {
   var lng = location[0];
   var lat = location[1];
@@ -58,6 +59,46 @@ var findNear = function(location, cb) {
       $geoWithin: {
         $box: [lowerleft, upperright]
       }
+=======
+
+var selectAllImages = (location, callback) => {
+  // var lat = location[0];
+  // var lng = location[1];
+  // var lowerleft = [lat-0.3,lng-0.3];
+  // var upperright = [lat+0.3, lng+0.3];
+  // Image.where('geoLocation').within().box(lowerleft, upperright)
+  //   .then( function(value){
+  //     console.log(value)
+  //     callback(null, value);
+  //   }, function(value){
+  //     callback(value, null);
+  //   })
+  Image.find({}, (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
+ var selectImages = (callback, query) => {
+  Image.find({query}, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+}
+
+var selectUser = (callback, query) => {
+  User.find({query}, (err, data) => {
+    if (err) {
+      callback(err, null);
+    }else{
+      callback(null, data);
+>>>>>>> Some styling in place.
     }
   }, cb);
 }

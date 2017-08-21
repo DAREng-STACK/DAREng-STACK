@@ -34,7 +34,7 @@ body {
   display: inline-block;
 }
 .modal-body {
-  background-color: #FFEDAE;
+  background-color: #00b3b3;
   border-radius: 4px;
 }
 .topfive-entry-image {
@@ -42,9 +42,10 @@ body {
   height: 125px;
 }
 .thumbnail {
-  background-color: rgba(172, 247, 255, 0.75);
+  background-color: #00b3b3;
   width: 200px;
   height: 200px;
+  border: none;
 
 }
 .img-circle {
