@@ -87,8 +87,11 @@ body {
 }
 
 #topFiveImages {
-  margin: auto;
-  margin-bottom: 5px;
+  /*margin: auto;*/
+  /*margin: 5px;*/
+  /*border:20px;*/
+  box-shadow: 1px 1px 1px 1px rgb(255 ,255,255,.5);
+  padding: 10px 10px 10px 10px;
 }
 
 #uploadButton {
