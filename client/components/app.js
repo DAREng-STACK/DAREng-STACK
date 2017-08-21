@@ -6,6 +6,7 @@ angular.module('main')
       this.location = {};
 
       this.$onInit = function () {
+        //when app is initialized send a GET images request
         serverComm.getImages((result) => {
           this.images = result.sort(function (a,b) {
             return b.timeStamp - a.timeStamp;

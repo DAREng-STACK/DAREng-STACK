@@ -11,7 +11,7 @@
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
-        zoom: 10
+        zoom: 13
       });
       infoWindow = new google.maps.InfoWindow;
 
@@ -19,8 +19,8 @@
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lng: position.coords.longitude,
+            lat: position.coords.latitude
           };
           infoWindow.setPosition(pos);
           infoWindow.setContent('Location found.');
@@ -41,7 +41,7 @@
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
-      }
+    }
     //needs information about app usage from everywhere it's being used
 
     //somehow renders hot spots onto a map based on that data

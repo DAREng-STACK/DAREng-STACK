@@ -28,6 +28,7 @@ app.get('/images', function(req, res, next) {
     db.findNear(coord,
       function(err, docs) {
         if (!err) {
+          //send the found images to with the response
           res.send(docs);
         } else {
           throw err;
@@ -39,6 +40,7 @@ app.post('/images', (req, res) => {
   var callBack = function (result) {
     res.send(result);
   }
+  //on POST image, send imgur request with image using method from helpers/imgurapi.js
   imgur.postImageToImgur(req.body, callBack);
 });
 

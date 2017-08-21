@@ -48,10 +48,10 @@ var User = mongoose.model('User', userSchema, 'users');
 var Image = mongoose.model('Image', imageSchema, 'images');
 // var Comment = mongoose.model('Comment', commentSchema, 'users');
 var findNear = function(location, cb) {
-  var lat = location[0];
-  var lng = location[1];
-  var lowerleft = [lng-0.3, lat-0.3];
-  var upperright = [(lng*10+3)/10, (lat*10+3)/10];
+  var lng = location[0];
+  var lat = location[1];
+  var lowerleft = [lng-1/60, lat-1/60];
+  var upperright = [(lng*10+(1/6))/10, (lat*10+(1/6))/10];
   var box = [lowerleft, upperright];
   return Image.find({
     geoLocation: {
@@ -62,25 +62,7 @@ var findNear = function(location, cb) {
   }, cb);
 }
 
-var selectNear = (location, callback) => {
-  var lat = location[0];
-  var lng = location[1];
-  var lowerleft = [lng-0.3, lat-0.3];
-  var upperright = [lng+0.3, lat+0.3];
-}
-
-var selectUser = (callback, query) => {
-  User.find({query}, (err, data) => {
-    if (err) {
-      callback(err, null);
-    }else{
-      callback(null, data);
-    }
-  })
-}
-
 var saveImage = (imageUrl, location) => {
-  console.log(location);
   var newImage = new Image({
     // id: image.id,
     // userId: image.userId,
@@ -119,6 +101,5 @@ var update = (imageData) => {
 
 module.exports.findNear = findNear;
 module.exports.saveImage = saveImage;
-module.exports.selectUser = selectUser;
 module.exports.saveUser = saveUser;
 module.exports.update = update;
