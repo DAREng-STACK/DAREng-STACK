@@ -7,7 +7,6 @@ angular.module('main')
     image: '<'
   },
   controller: ($scope) => {
-    // console.log($scope)
     var map;
     var infoWindow;
 
@@ -25,7 +24,6 @@ angular.module('main')
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-          console.log(pos);
           infoWindow.setPosition(pos);
           infoWindow.setContent('Location found.');
           infoWindow.open(map);
