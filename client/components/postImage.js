@@ -23,10 +23,16 @@ angular.module('main')
       };
       console.log(data);
       //on success invoke parent function form app component.
-      serverComm.postContent(data);
+      serverComm.postContent(data, this.get);
       //after post trigger app to get images...
     };
+    this.$onInit = function () {
+      // console.log(this.get, 'SCOPPPE?');
+    }
   },
 
-  templateUrl: '../templates/postImage.html'
+  templateUrl: '../templates/postImage.html',
+  bindings: {
+    get: '<'
+  }
 });

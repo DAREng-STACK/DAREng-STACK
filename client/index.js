@@ -23,7 +23,7 @@ angular.module('main', ['bootstrapLightbox'])
       })
     };
 
-    this.postContent = function(data) {
+    this.postContent = function(data, cb) {
       this.getLocation( (result) => {
         //grab image location and send location with POST request
         data.geoLocation = result;
@@ -33,6 +33,7 @@ angular.module('main', ['bootstrapLightbox'])
           data: data
         }).then((resolve) => {
           console.log('POST REQUEST SUCCESS', resolve);
+          console.log(cb, 'CBBBBBBBB');
         }, (reject) => {
           console.log('POST REQUEST ERROR', reject)
         });
