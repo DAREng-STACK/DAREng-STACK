@@ -4,29 +4,32 @@ div {
 .navbar {
   margin-bottom: 0;
   font-weight: bold;
-  color: #a991E8;
+  background-color: white;
   text-align: center;
-  background-color: #a991E8; /* Old browsers */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#a991E8), to(#8976BB));
-  background-image: -webkit-linear-gradient(top, #A891E8 0%, #8976BB 100%);
-  background-image:      -o-linear-gradient(top, #a991E8 0%, #8976BB 100%);
-  background-image:         linear-gradient(to bottom, #a991E8 0%,#8976BB 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a991E8', endColorstr='#8976BB',GradientType=0 ); /* IE6-9 */
-  background-repeat: repeat-x; /* Repeat the gradient */
-  border-bottom: 1px rgba(213, 213, 213, 0.00);
+  /*background-color: #EFEFEF; /* Old browsers */*/
+  /*background-image: -webkit-gradient(linear, left top, left bottom, from(#EFEFEF), to(#8976BB));*/
+  /*background-image: -webkit-linear-gradient(top, #EFEFEF 0%, #EFEFEF 100%);*/
+  /*background-image:      -o-linear-gradient(top, #EFEFEF 0%, #EFEFEF 100%);*/
+  /*background-image:         linear-gradient(to bottom, #EFEFEF 0%,#EFEFEF 100%);*/
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFEFEF', endColorstr='#8976BB',GradientType=0 ); /* IE6-9 */*/
+  /*background-repeat: repeat-x; /* Repeat the gradient */*/
+  border-style: 10px solid black;
 }
 .navbar-collapse {
   border: 1px rgba(172, 247, 255, 0.00);
 }
-username {
+/*username {
   background-color: #A2E981;
-}
+}*/
 body {
-  background-color: rgba(128, 128, 128, 0.62);
+  background: url('https://image.freepik.com/free-vector/background-with-geometric-shapes_1023-36.jpg') ;
   padding-top: 70px;
+  background-repeat: no-repeat;
   padding-bottom: 30px;
-
+  background-size: cover;
+  background-attachment: fixed;
 }
+
 .navbar .container {
   width: auto;
 }
@@ -34,15 +37,14 @@ body {
   display: inline-block;
 }
 .modal-body {
-  background-color: #00b3b3;
-  border-radius: 4px;
+  background-color: #F4F4F6;
+  /*border-radius: 4px;*/
 }
 .topfive-entry-image {
   width: 125px;
   height: 125px;
 }
 .thumbnail {
-  background-color: #00b3b3;
   width: 200px;
   height: 200px;
   border: none;
@@ -54,6 +56,9 @@ body {
 }
 #map {
   height: 500px;
+  max-width: 300px;
+  max-height: 200px;
+  margin: auto;"
 }
 .btn-primary {
   background-color: #A2E891;
@@ -63,6 +68,47 @@ body {
 }
 .btn-danger {
   background-color: #FFB4BB
+}
+
+#uploadAndMap {
+/*  background: #CAEBF2;
+*/  width: 250px;
+  /*border-radius: 10px;*/
+}
+
+#topImages {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#picognito {
+  font-size: 30px;
+  color: black;
+}
+
+#topFiveImages {
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+#uploadButton {
+  background: #EBA746;
+  color: white;
+  border: none;
+  margin: 2px;
+}
+
+#postImage {
+  color: black;
+  font-weight: bold;
+  text-align: right;
+}
+
+#postimage-container {
+  /*border-radius: 10px;*/
+  width: 600px
 }
 /* Optional: Makes the sample page fill the window. 
 html, body {

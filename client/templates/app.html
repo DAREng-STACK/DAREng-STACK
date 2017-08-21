@@ -7,13 +7,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" style="font-size: 30px; color: white;">Picognito</a>
+      <a class="navbar-brand" href="#" id="picognito" >Picognito</a>
     </div> <!--/end header -->
-    <div id="navbar" class="navbar-collapse collapse"> <!--main nav bar -->
-      <div class="nav navbar-nav col-md-9">
+    <div id="navbar" class="navbar-collapse collapse" > <!--main nav bar -->
+      <div class="nav navbar-nav col-xs-3">
         <!-- <search />       -->
       </div>
-      <!-- <username class="col-md-2 " /> -->
+      <div class="col-xs-3 col-xs-offset-3">
+        <postimage
+        location="$ctrl.location"
+        get="$ctrl.getAndSortImages"
+       />
+     </div>
 
     </div><!--/.nav-collapse -->
   </div>
@@ -21,34 +26,42 @@
 
 <div class="container-fluid theme-showcase" role="main"> <!--main body grid start -->
   <div class="col-xs-8" >
-    <div class="row">
-      <postimage
-        class="col-xs-7"
-        location="$ctrl.location"
-        get="$ctrl.getAndSortImages"
-      />
- 
+      <div class="row" >
+
     </div>
     <div class="row" >
 
     </div>
     <div class="row">
       <img
+
         ng-click="$ctrl.openLightboxModal($index)"
         ng-repeat="image in $ctrl.images | limitTo:30"
         ng-src={{image.imageUrl}}
-        class="col-xs-3 thumbnail"
-        style="margin: 5px;"
+        class="col-xs-3 img-rounded"
+        style="margin: 5px; height: 250px; width: 300px; " 
       />
     </div>
   </div>
   <div class="col-xs-1" />
-  <div class="col-xs-3" style="background: #9681CE ; width: 250px; border-radius: 10px">
+  <div class="col-xs-3" id="uploadAndMap">
   <br></br>
-    <p style="color: white; text-align: center; font-weight: bold; font-size: 24px;">
+    <div class="row">
+      <heatmap
+        location="$ctrl.location"
+      />
+   </div>
+    <p id="topImages">
       Top Images
     </p>
-    <img ng-click="$ctrl.openLightboxModal($index)" ng-repeat="top5img in $ctrl.topfiveimages | limitTo:5" ng-src={{top5img.imageUrl}} class="row thumbnail" style="margin: auto; margin-bottom: 5px;"/>
+    <img
+      ng-click="$ctrl.openLightboxModal($index)"
+      ng-repeat="top5img in $ctrl.topfiveimages | limitTo:5"
+      ng-src={{top5img.imageUrl}}
+      class="row"
+      id="topFiveImagesz"
+      style="margin: auto; margin: 5px; height: 150px; width: 200px;"
+    />
   </div>
 </div> <!--/ Main container ends-->
 <!-- <yourmostliked /> -->
