@@ -30,7 +30,7 @@ var imageSchema = mongoose.Schema({
   userId: Number,
   imageUrl: String,
   caption: String,
-  geoLocation: Array,
+  geoLocation: {type:[Number], index:'2d sphere'},
   tags: Array,
   timeStamp: Number,
   comments: Array,
@@ -47,36 +47,28 @@ var imageSchema = mongoose.Schema({
 var User = mongoose.model('User', userSchema, 'users');
 var Image = mongoose.model('Image', imageSchema, 'images');
 // var Comment = mongoose.model('Comment', commentSchema, 'users');
-
-var selectAllImages = (location, callback) => {
+var findNear = function(location, cb) {
   var lat = location[0];
   var lng = location[1];
-  var lowerleft = [lat-0.3,lng-0.3];
-  var upperright = [lat+0.3, lng+0.3];
-  Image.where('geoLocation').within().box(lowerleft, upperright)
-    .then( function(value){
-      console.log(value)
-      callback(null, value);
-    }, function(value){
-      callback(value, null);
-    })
-  // Image.find({}, (err, data) => {
-  //   if (err) {
-  //     callback(err, null);
-  //   } else {
-  //     callback(null, data);
-  //   }
-  // });
+  var lowerleft = [lng-0.3, lat-0.3];
+  var upperright = [(lng*10+3)/10, (lat*10+3)/10];
+  var box = [lowerleft, upperright];
+  console.log(box)
+  return Image.find({
+    geoLocation: {
+      $geoWithin: {
+        $box: [lowerleft, upperright]
+      }
+    }
+  }, cb);
 }
 
- var selectImages = (callback, query) => {
-  Image.find({query}, (err, results) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, results);
-    }
-  });
+var selectNear = (location, callback) => {
+  var lat = location[0];
+  var lng = location[1];
+  var lowerleft = [lng-0.3, lat-0.3];
+  var upperright = [lng+0.3, lat+0.3];
+  console.log(lat, lng)
 }
 
 var selectUser = (callback, query) => {
@@ -134,7 +126,7 @@ var update = (imageData) => {
   });
 }
 
-module.exports.selectAllImages = selectAllImages;
+module.exports.findNear = findNear;
 module.exports.saveImage = saveImage;
 module.exports.selectUser = selectUser;
 module.exports.saveUser = saveUser;

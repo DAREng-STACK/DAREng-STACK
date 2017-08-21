@@ -20,13 +20,33 @@ app.post('/imageChange', function(req, res) {
 });
 
 app.get('/images', function(req, res, next) {
+  // var nearImages = function(req, res, next) {
+//I'm just sending the geolocation points in a format like this 39.92,-23
+// but you can send it however you want
 
-  db.selectAllImages(req.query.geoLocation, (err, selected) => {
-    if(err){
-      console.log('err');
-    }
-    res.send(selected);
-  });
+    var coord = req.query.geoLocation;
+    console.log(coord, "@@@@@@@@@@@@@@@ ")
+    var Image = mongoose.model('Image');
+    console.log(coord)
+    var park = new Image({geoLocation: coord});
+    db.findNear(coord,
+      function(err, docs) {
+        if (!err) {
+          console.log(docs)
+          res.send(docs);
+        } else {
+          throw err;
+        }
+      });
+    // next();
+  // }
+  // nearImages(req,res,next);
+  // db.selectAllImages(req.query.geoLocation, (err, selected) => {
+  //   if(err){
+  //     console.log('err');
+  //   }
+  //   res.send(selected);
+  // });
 });
 
 app.post('/images', (req, res) => {

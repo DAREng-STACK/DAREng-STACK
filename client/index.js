@@ -43,8 +43,8 @@ angular.module('main', ['bootstrapLightbox'])
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = [
-            position.coords.latitude,
-            position.coords.longitude
+            position.coords.longitude,
+            position.coords.latitude
           ];
           console.log(pos)
           cb(pos);
