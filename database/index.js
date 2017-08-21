@@ -53,7 +53,6 @@ var findNear = function(location, cb) {
   var lowerleft = [lng-0.3, lat-0.3];
   var upperright = [(lng*10+3)/10, (lat*10+3)/10];
   var box = [lowerleft, upperright];
-  console.log(box)
   return Image.find({
     geoLocation: {
       $geoWithin: {
@@ -68,7 +67,6 @@ var selectNear = (location, callback) => {
   var lng = location[1];
   var lowerleft = [lng-0.3, lat-0.3];
   var upperright = [lng+0.3, lat+0.3];
-  console.log(lat, lng)
 }
 
 var selectUser = (callback, query) => {
@@ -95,18 +93,11 @@ var saveImage = (imageUrl, location) => {
     // tags: image.tags,
     comments: []
   });
-  // newImage.addGeoLocation();
-  // newImage.save(function(err, res) {
-  //   if (err) {
-  //     return err;
-  //   }else{
-  //     return res;
-  //   }
-  // });
+
   newImage.save(function (err, res) {
    if (err) console.log('error', err); // saved!
    });
-// console.log(image, 'IMAGE STUFF IN DB!')
+
 }
 //
 var saveUser = (user) => {

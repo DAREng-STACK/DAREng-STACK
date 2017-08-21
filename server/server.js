@@ -14,43 +14,28 @@ app.use('/', express.static(path.join(__dirname, '../client')));
 
 //routes
 app.post('/imageChange', function(req, res) {
-  console.log(req.body, 'IMAGE CHANGE!');
   db.update(req.body);
   res.sendStatus(200);
 });
 
 app.get('/images', function(req, res, next) {
-  // var nearImages = function(req, res, next) {
-//I'm just sending the geolocation points in a format like this 39.92,-23
-// but you can send it however you want
-
+  //on GET request, first store the location
     var coord = req.query.geoLocation;
-    console.log(coord, "@@@@@@@@@@@@@@@ ")
+    //create base image model for geolocation sorting purposes
     var Image = mongoose.model('Image');
-    console.log(coord)
     var park = new Image({geoLocation: coord});
+    //findNear function from database/index.js that queries db for images within the radius
     db.findNear(coord,
       function(err, docs) {
         if (!err) {
-          console.log(docs)
           res.send(docs);
         } else {
           throw err;
         }
       });
-    // next();
-  // }
-  // nearImages(req,res,next);
-  // db.selectAllImages(req.query.geoLocation, (err, selected) => {
-  //   if(err){
-  //     console.log('err');
-  //   }
-  //   res.send(selected);
-  // });
 });
 
 app.post('/images', (req, res) => {
-  console.log('req body', req.body);
   var callBack = function (result) {
     res.send(result);
   }
@@ -58,10 +43,8 @@ app.post('/images', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  console.log(req.body, "@@@@@@@@@@@@@@@")
     db.selectUser((err, data) => {
       if(err){
-        console.log('username or password incorrect');
         res.redirect('/login')
       }
       res.send(data);
@@ -70,12 +53,10 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
-  console.log(req.body, '@#$%@#@$#@%')
   var username = req.body.username;
   var password = req.body.password;
   db.selectUser((err, data) => {
     if(err){
-      console.log('ERRROR', err, "ERROR");
       db.saveUser(data)
     }else{
       res.redirect('/login');

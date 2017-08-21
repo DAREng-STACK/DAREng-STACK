@@ -29,12 +29,13 @@
       <heatmap
         class="col-xs-6"
         location="$ctrl.location"
+        ng-repeat="image in $ctrl.images"
       />
     </div>
     <div class="row">
-      <img 
+      <img
         ng-click="$ctrl.openLightboxModal($index)"
-        ng-repeat="image in $ctrl.images | limitTo:30" 
+        ng-repeat="image in $ctrl.images | limitTo:30"
         ng-src={{image.imageUrl}}
         class="col-xs-3 thumbnail"
       />

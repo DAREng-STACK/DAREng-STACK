@@ -8,10 +8,10 @@ angular.module('main', ['bootstrapLightbox'])
   })
   .service('serverComm', function($http) {
     this.getImages = function(cb) {
+      //grab the user location and send along with the ajax GET request
       this.getLocation ( (results) => {
         var data = {};
         data.geoLocation = results;
-        console.log(data.geoLocation, '@DFA')
         $http({
           method: 'GET',
           url: '/images',
@@ -25,8 +25,8 @@ angular.module('main', ['bootstrapLightbox'])
 
     this.postContent = function(data) {
       this.getLocation( (result) => {
+        //grab image location and send location with POST request
         data.geoLocation = result;
-        console.log(result);
         $http({
           method: 'POST',
           url: '/images',
@@ -39,6 +39,7 @@ angular.module('main', ['bootstrapLightbox'])
       })
     }
 
+    //this sends the google maps api call and grabs the user location
     this.getLocation = (cb) => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -46,7 +47,6 @@ angular.module('main', ['bootstrapLightbox'])
             position.coords.longitude,
             position.coords.latitude
           ];
-          console.log(pos)
           cb(pos);
         }, function() {
           console.log('Could not find location')

@@ -3,8 +3,10 @@ angular.module('main')
 .component('heatmap', {
   bindings: {
     location: '=',
+    images: '<',
+    image: '<'
   },
-  controller: () => {
+  controller: ($scope) => {
     // console.log($scope)
     var map;
     var infoWindow;

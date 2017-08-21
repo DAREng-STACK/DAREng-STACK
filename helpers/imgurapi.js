@@ -19,7 +19,6 @@ var postImageToImgur = function(img, callBack) {
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
     let result = JSON.parse(body);
-    console.log('imgur xpost success', result.data.link);
     db.saveImage(result.data.link, img.geoLocation);
     callBack(result.data.link);
   });
