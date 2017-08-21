@@ -1,10 +1,8 @@
-angular.module('main')
+  angular.module('main')
 
 .component('heatmap', {
   bindings: {
     location: '=',
-    images: '<',
-    image: '<'
   },
   controller: ($scope) => {
     var map;
