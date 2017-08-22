@@ -14,7 +14,7 @@ angular.module('main')
             return b.timeStamp - a.timeStamp;
           })
 
-          this.topfiveimages = this.images.sort(function(a, b) {
+          this.topfiveimages = result.sort(function(a, b) {
             return b.likeCount - a.likeCount;
         });
         });
