@@ -21,6 +21,7 @@ app.post('/imageChange', function(req, res) {
 app.get('/images', function(req, res, next) {
   //on GET request, first store the location
     var coord = req.query.geoLocation;
+    console.log(coord)
     //create base image model for geolocation sorting purposes
     var Image = mongoose.model('Image');
     var park = new Image({geoLocation: coord});
@@ -34,6 +35,7 @@ app.get('/images', function(req, res, next) {
           throw err;
         }
       });
+
 
 });
 

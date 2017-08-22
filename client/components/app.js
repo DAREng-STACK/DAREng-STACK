@@ -5,8 +5,6 @@ angular.module('main')
       this.topfiveimages = [];
       this.location = {};
 
-      this.$onInit = function () {
-        //when app is initialized send a GET images request
 
       this.$onInit = function () {
         serverComm.getImages((result) => {
@@ -26,4 +24,4 @@ angular.module('main')
       };
     },
     templateUrl: '../templates/app.html'
-  });
+   });
